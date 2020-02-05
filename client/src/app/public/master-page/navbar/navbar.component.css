@@ -1,0 +1,11 @@
+.logo{
+    width: 60%;
+    height: 100%;
+}
+.logo-container{
+    width: 40%;
+    height: 100%;
+    float: left;
+    box-shadow: 2px 2px 10px #666 inset;
+    background-color: white;
+}
