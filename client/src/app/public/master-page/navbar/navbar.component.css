@@ -8,4 +8,5 @@
     float: left;
     box-shadow: 2px 2px 10px #666 inset;
     background-color: white;
+    border-radius: 0% 100% 0% 0%;
 }
