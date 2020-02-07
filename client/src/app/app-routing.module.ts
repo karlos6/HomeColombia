@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: './modules/security/security.module#SecurityModule'    
   },
   {
+    path: 'department',
+    loadChildren: './modules/parameters/department/department.module#DepartmentModule'    
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }  
