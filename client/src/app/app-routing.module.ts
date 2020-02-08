@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: './modules/parameters/department/department.module#DepartmentModule'    
   },
   {
+    path: 'city',
+    loadChildren: './modules/parameters/city/city.module#CityModule'    
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }  
