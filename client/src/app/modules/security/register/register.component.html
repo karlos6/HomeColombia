@@ -1,0 +1,90 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col s12" id="reg-form">
+
+            <form [formGroup]="RValidation" class="login-form">
+
+                <div class="row">
+
+                    <!-- NAME -->
+                    <div class="input-field col s6">
+                        <input id="first_name" formControlName="firstname" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+
+                        <!-- VALIDACIONES FIRST NAME -->
+                        <div *ngIf="rr.firstname.errors && (rr.firstname.dirty || rr.firstname.touched)"
+                            class="warning-validation">
+
+                            <!-- TIPO DE ERRORES -->
+                            <strong *ngIf="rr.firstname.errors.required">Username is required!</strong>
+                            <strong *ngIf="rr.firstname.errors.maxlength">Username must be up to 12 char!</strong>
+                        </div>
+                    </div>
+
+                    <!--APELLIDO-->
+                    <div class="input-field col s6">
+                        <input id="last_name" formControlName="lastname" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+
+                        <!-- VALIDACIONES FIRST NAME -->
+                        <div *ngIf="rr.lastname.errors && (rr.lastname.dirty || rr.lastname.touched)"
+                            class="warning-validation">
+
+                            <!-- TIPO DE ERRORES -->
+                            <strong *ngIf="rr.lastname.errors.required">Username is required!</strong>
+                            <strong *ngIf="rr.lastname.errors.maxlength">Username must be up to 12 char!</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Email y password-->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="email" formControlName="username" type="email" class="validate">
+                        <label for="email">Username (Email)</label>
+
+                        <!-- validaciones username -->
+                        <div *ngIf="rr.username.errors && (rr.username.dirty || rr.username.touched)"
+                            class="warning-validation">
+                            <!-- tipos de errores -->
+                            <strong *ngIf="rr.username.errors.required">Username is required!</strong>
+                            <strong *ngIf="rr.username.errors.minlength"> Username must be at least 5 char!</strong>
+                            <strong *ngIf="rr.username.errors.maxlength"> Username must be up to 20 char!</strong>
+                            <strong *ngIf="rr.username.errors.email"> Username must be an email!</strong>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input id="password" formControlName="password" type="password" class="validate">
+                        <label for="password">Password</label>
+
+                        <!-- validaciones password -->
+                        <div *ngIf="rr.password.errors && (rr.password.dirty || rr.password.touched)"
+                            class="warning-validation">
+                            <!-- tipos de errores -->
+                            <strong *ngIf="rr.password.errors.required">Username is required!</strong>
+                            <strong *ngIf="rr.password.errors.minlength">Username must be at least 4 char!</strong>
+                            <strong *ngIf="rr.password.errors.maxlength">Username must be up to 15 char!</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="phone" type="text" class="validate">
+                        <label for="phone">Phone</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
