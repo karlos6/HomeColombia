@@ -25,10 +25,13 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/materialize-css/dist/css/materialize.css"
+              "node_modules/materialize-css/dist/css/materialize.css",
+              "src/assets/css/general.css"
+
             ],
             "scripts": [
-              "node_modules/materialize-css/dist/js/materialize.js"
+              "node_modules/materialize-css/dist/js/materialize.js",
+              "src/assets/js/init.js"
             ]
           },
           "configurations": {
