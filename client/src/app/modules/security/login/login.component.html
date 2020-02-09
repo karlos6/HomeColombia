@@ -13,10 +13,10 @@
                 <strong *ngIf="fg.username.errors.required">
                     Username is required! <br />
                 </strong>
-                <strong *ngIf="fg.username.errors.minLength">
+                <strong *ngIf="fg.username.errors.minlength">
                     Username must be at least 5 characters long! <br />
                 </strong>
-                <strong *ngIf="fg.username.errors.maxLength">
+                <strong *ngIf="fg.username.errors.maxlength">
                     Username must be up 40 characters long! <br />
                 </strong>
                 <strong *ngIf="fg.username.errors.email">
@@ -34,10 +34,10 @@
                 <strong *ngIf="fg.password.errors.required">
                     Password is required! <br />
                 </strong>
-                <strong *ngIf="fg.username.errors.minLength">
+                <strong *ngIf="fg.username.errors.minlength">
                     Password must be at least 8 characters long! <br />
                 </strong>
-                <strong *ngIf="fg.password.errors.maxLength">
+                <strong *ngIf="fg.password.errors.maxlength">
                     Password must be up 15 characters long!
                 </strong>
             </div>
