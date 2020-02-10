@@ -1,0 +1,58 @@
+<br />
+<br />
+<a routerLink="/department/creator" class="waves-effect waves-light btn">New Register</a>
+<br />
+<br />
+
+
+<table class="responsive-table">
+    <thead>
+        <tr>
+            <th scope="col">
+                Code
+            </th>
+            <th scope="col">
+                Contry Name
+            </th>
+            <th scope="col">
+                Edit
+            </th>
+            <th scope="col">
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dept of departments | paginate: { itemsPerPage: 3, currentPage: p}">
+            <td>
+                {{dept.code}}
+            </td>
+            <td>
+                {{dept.name}}
+            </td>
+            <td>
+                <a routerLink="" class="waves-effect waves-light btn orange">Edit
+                    <i class="material-icons right">edit</i>
+                </a>
+            </td>
+            <td>
+                <button class="btn waves-effect waves-light red" type="button">Delete
+                    <i class="material-icons right">delete</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<div id="modalConfirmation" class="modal">
+    <div class="modal-content">
+        <h4>Confirmation Window</h4>
+        <p>Do you confirm remove this element?</p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-green btn red">Cancel</a> &nbsp;
+        <a class="modal-close waves-effect waves-green btn green" >Confirm</a>
+        
+    </div>
+</div>
