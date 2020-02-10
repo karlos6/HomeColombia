@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
+import { HomeComponent } from './public/home/home.component';
 
 
 const routes: Routes = [
 
   {
     path: 'home',
-    component: HeroComponent
+    component: HomeComponent
   },
   {
     path: '',

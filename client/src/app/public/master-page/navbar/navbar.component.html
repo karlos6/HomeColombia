@@ -1,13 +1,28 @@
-<div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper blue-nav">
-        <div class="logo-container">
-        <img src="assets/images/logo2.png" class="logo">
-        </div>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-        </ul>
-      </div>
-    </nav>
+<!-- inicio navbar -->
+<nav>
+  <div class="nav-wrapper  brown darken-3">
+    <a routerLink="/home" class="brand-logo">Home</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
+            class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a routerLink="/security/login">Login</a></li>
+      <li><a routerLink="/security/logout">Logout</a></li>
+    </ul>
   </div>
+</nav>
+
+<!-- barra desplegable -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+
+<!-- componentes adaptado mobil -->
+<ul class="sidenav" id="mobile-demo">
+  <li><a routerLink="/security/login">Login</a></li>
+  <li><a routerLink="/security/logout">Logout</a></li>
+</ul>
