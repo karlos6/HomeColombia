@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'security',
-    loadChildren: './modules/security/security.module#SecurityModule'    
+    loadChildren: './modules/security/security.module#SecurityModule'
   },
   {
     path: 'department',
@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'city',
     loadChildren: './modules/parameters/city/city.module#CityModule'    
+  },
+  {
+    path: 'inmueble',
+    loadChildren: './modules/administrator/inmueble/inmueble.module#InmuebleModule'    
   },
   {
     path: '**',

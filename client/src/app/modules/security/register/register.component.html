@@ -1,90 +1,106 @@
+<br />
 <div class="container">
-
     <div class="row">
+        <form [formGroup]="fgValidation" class="col s12" id="reg-form">
+            <div class="row">
 
-        <div class="col s12" id="reg-form">
-
-            <form [formGroup]="RValidation" class="login-form">
-
-                <div class="row">
-
-                    <!-- NAME -->
-                    <div class="input-field col s6">
-                        <input id="first_name" formControlName="firstname" type="text" class="validate">
-                        <label for="first_name">First Name</label>
-
-                        <!-- VALIDACIONES FIRST NAME -->
-                        <div *ngIf="rr.firstname.errors && (rr.firstname.dirty || rr.firstname.touched)"
-                            class="warning-validation">
-
-                            <!-- TIPO DE ERRORES -->
-                            <strong *ngIf="rr.firstname.errors.required">Username is required!</strong>
-                            <strong *ngIf="rr.firstname.errors.maxlength">Username must be up to 12 char!</strong>
-                        </div>
-                    </div>
-
-                    <!--APELLIDO-->
-                    <div class="input-field col s6">
-                        <input id="last_name" formControlName="lastname" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
-
-                        <!-- VALIDACIONES FIRST NAME -->
-                        <div *ngIf="rr.lastname.errors && (rr.lastname.dirty || rr.lastname.touched)"
-                            class="warning-validation">
-
-                            <!-- TIPO DE ERRORES -->
-                            <strong *ngIf="rr.lastname.errors.required">Username is required!</strong>
-                            <strong *ngIf="rr.lastname.errors.maxlength">Username must be up to 12 char!</strong>
-                        </div>
+                <!--Nombre-->
+                <div class="input-field col s6">
+                    <input id="nombre" formControlName="nombre" type="text" class="validate" required>
+                    <label for="nombre">Nombre</label>
+                    <div class="warning-validation" *ngIf="fg.nombre.errors && (fg.nombre.dirty || fg.nombre.touched)">
+                        <strong *ngIf="fg.nombre.errors.required">
+                            Nombre Requerido <br />
+                        </strong>
                     </div>
                 </div>
 
-                <!--Email y password-->
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="email" formControlName="username" type="email" class="validate">
-                        <label for="email">Username (Email)</label>
-
-                        <!-- validaciones username -->
-                        <div *ngIf="rr.username.errors && (rr.username.dirty || rr.username.touched)"
-                            class="warning-validation">
-                            <!-- tipos de errores -->
-                            <strong *ngIf="rr.username.errors.required">Username is required!</strong>
-                            <strong *ngIf="rr.username.errors.minlength"> Username must be at least 5 char!</strong>
-                            <strong *ngIf="rr.username.errors.maxlength"> Username must be up to 20 char!</strong>
-                            <strong *ngIf="rr.username.errors.email"> Username must be an email!</strong>
-                        </div>
-                    </div>
-
-                    <div class="input-field col s6">
-                        <input id="password" formControlName="password" type="password" class="validate">
-                        <label for="password">Password</label>
-
-                        <!-- validaciones password -->
-                        <div *ngIf="rr.password.errors && (rr.password.dirty || rr.password.touched)"
-                            class="warning-validation">
-                            <!-- tipos de errores -->
-                            <strong *ngIf="rr.password.errors.required">Username is required!</strong>
-                            <strong *ngIf="rr.password.errors.minlength">Username must be at least 4 char!</strong>
-                            <strong *ngIf="rr.password.errors.maxlength">Username must be up to 15 char!</strong>
-                        </div>
+                <!--Apellido-->
+                <div class="input-field col s6">
+                    <input id="apellido" formControlName="apellido" type="text" class="validate" required>
+                    <label for="apellido">Apellido</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.apellido.errors && (fg.apellido.dirty || fg.apellido.touched)">
+                        <strong *ngIf="fg.nombre.errors.required">
+                            Apellido Requerido <br />
+                        </strong>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="phone" type="text" class="validate">
-                        <label for="phone">Phone</label>
+            </div>
+            <div class="row">
+
+                <!--Telefono-->
+                <div class="input-field col s12">
+                    <input id="telefono" formControlName="telefono" type="text" class="validate" required>
+                    <label for="telefono">Telefono</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.telefono.errors && (fg.telefono.dirty || fg.telefono.touched)">
+                        <strong *ngIf="fg.telefono.errors.required">
+                            Telefono Requerido <br />
+                        </strong>
+                        <strong *ngIf="fg.telefono.errors.maxlength">
+                            Telefono debe tener hasta 12 caracteres
+                        </strong>
                     </div>
                 </div>
 
-            </form>
-        </div>
+            </div>
+            <div class="row">
 
+                <!--Email-->
+                <div class="input-field col s12">
+                    <input id="email" formControlName="email" type="email" class="validate" required>
+                    <label for="email">Email</label>
+                    <div class="warning-validation" *ngIf="fg.email.errors && (fg.email.dirty || fg.email.touched)">
+                        <strong *ngIf="fg.email.errors.required">
+                            Email Requerido <br />
+                        </strong>
+                        <strong *ngIf="fg.email.errors.minlength">
+                            Email debe tener como minimo 7 caracteres <br />
+                        </strong>
+                        <strong *ngIf="fg.email.errors.maxlength">
+                            Email debe tener hasta 15 caracteres <br />
+                        </strong>
+                        <strong *ngIf="fg.email.errors.email">
+                            Debe ser un Email
+                        </strong>
+                    </div>
+                </div>
 
+            </div>
+            <div class="row">
 
-
+                <!--Nombre-->
+                <div class="input-field col s12">
+                    <input id="password" formControlName="password" type="password" class="validate" minlength="6"
+                        required>
+                    <label for="password">Password</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.password.errors && (fg.password.dirty || fg.password.touched)">
+                        <strong *ngIf="fg.password.errors.required">
+                            Password Requerido <br />
+                        </strong>
+                        <strong *ngIf="fg.password.errors.minlength">
+                            Password debe tener como minimo 7 caracteres <br />
+                        </strong>
+                        <strong *ngIf="fg.password.errors.maxlength">
+                            Password debe tener hasta 12 caracteres <br />
+                        </strong>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row center">
+                <div class="input-field col s12">
+                    <div class="input-field col s12 ">
+                        <button class="btn waves-effect waves-light col s12 #00897b teal darken-2" type="submit" name="action">Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-
-
 </div>
+
+<br />
