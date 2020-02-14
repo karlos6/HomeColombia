@@ -10,7 +10,7 @@
             <i class="material-icons prefix">mail_outline</i>
             <input class="validate" formControlName="username" id="username" type="email">
             <label for="username" data-error="wrong" data-success="right">Username</label>
-            <div class="warning-validation" *ngIf="fg.username.errors || (fg.username.dirty && fg.username.touched)">
+            <div class="warning-validation" *ngIf="fg.username.errors && (fg.username.dirty || fg.username.touched)">
                 <strong *ngIf="fg.username.errors.required">
                     Username is required! <br />
                 </strong>
@@ -29,13 +29,13 @@
         <div class="row">
         <div class="input-field col s12">
             <i class="material-icons prefix">lock_outline</i>
-            <input id="password" formControlPassword="password" type="password">
+            <input id="password" formControlName="password" type="password">
             <label for="password">Password</label>
-            <div class="warning-validation" *ngIf="fg.password.errors || (fg.password.dirty && fg.password.touched)">
+            <div class="warning-validation" *ngIf="fg.password.errors && (fg.password.dirty || fg.password.touched)">
                 <strong *ngIf="fg.password.errors.required">
                     Password is required! <br />
                 </strong>
-                <strong *ngIf="fg.username.errors.minlength">
+                <strong *ngIf="fg.password.errors.minlength">
                     Password must be at least 8 characters long! <br />
                 </strong>
                 <strong *ngIf="fg.password.errors.maxlength">
