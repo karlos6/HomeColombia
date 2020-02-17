@@ -1,6 +1,13 @@
 {
   "db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/homeColombiaDB",
+    "database": "homeColombiaDB",
+    "password": "",
     "name": "db",
-    "connector": "memory"
+    "user": "",
+    "useNewUrlParser": true,
+    "connector": "mongodb"
   }
 }

@@ -17,7 +17,11 @@
     "loopback": "^3.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
+<<<<<<< HEAD
     "ng-recaptcha": "^5.0.0",
+=======
+    "loopback-connector-mongodb": "^4.2.0",
+>>>>>>> f6a5725c5f6b1a5e349cf9e8484bdc45a20da37d
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^3.0.0"
   },
