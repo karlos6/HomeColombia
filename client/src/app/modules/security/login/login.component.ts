@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   fgValidationBuilder(){
     this.fgValidation = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(40),Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(15)]]
+      password: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(15)]]
     });
   }
 
