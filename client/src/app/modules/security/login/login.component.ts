@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SecurityService } from 'src/app/services/security.service';
+import { Router } from '@angular/router';
+
+declare var openHCModalMessage: any;
 
 @Component({
   selector: 'app-login',
@@ -10,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   fgValidation: FormGroup;
 
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder, private secService: SecurityService,
+    private router: Router) { 
 
   }
 
@@ -26,10 +31,23 @@ export class LoginComponent implements OnInit {
   }
 
   loginEvent(){
+    
     if(this.fgValidation.invalid){
       alert("Invalid date.");
     }else{
-      alert("go to login");
+      let u = this.fg.username.value;
+      let p = this.fg.password.value;
+      console.log(u)
+      console.log(p)
+      this.secService.loginUser(u, p).subscribe(data =>{
+        if(data != null){
+          console.log(data);
+          this.router.navigate(['/home']);
+          this.secService.saveLoginInfo(data);
+        }else{
+          openHCModalMessage("Data is not valid!")
+        }
+      });
     }
   }
 

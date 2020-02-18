@@ -7,13 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 
 
+
 @NgModule({
   declarations: [RegisterComponent, LoginComponent, LogoutComponent],
   imports: [
     CommonModule,
     SecurityRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 })
 export class SecurityModule { }

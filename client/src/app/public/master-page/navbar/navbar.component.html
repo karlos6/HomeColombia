@@ -1,5 +1,6 @@
 <!-- inicio navbar -->
 <nav>
+  <strong *ngIf="userLogged">{{userName}}</strong>
   <div class="nav-wrapper #00897b teal darken-2">
     <div class="logo-div">
     <a routerLink="/home" ><h3 class="logo">HomeColombia</h3></a>
@@ -8,8 +9,8 @@
     <ul class="right hide-on-med-and-down">
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
             class="material-icons right">account_circle</i></a></li>
-      <li><a routerLink="/security/login">Login</a></li>
-      <li><a routerLink="/security/logout">Logout</a></li>
+      <li *ngIf="!userLogged"><a routerLink="/security/login">Login</a></li>
+      <li *ngIf="userLogged"><a routerLink="/security/logout">Logout</a></li>
       <li><a routerLink="/department/list">Department</a></li>
       <li><a routerLink="/city/list">Ciudad</a></li>
       <li><a routerLink="/inmueble/list">Inmueble</a></li>
@@ -28,8 +29,8 @@
 
 <!-- componentes adaptado mobil -->
 <ul class="sidenav" id="mobile-demo">
-  <li><a routerLink="/security/login">Login</a></li>
-  <li><a routerLink="/security/logout">Logout</a></li>
+  <li><a *ngIf="!userLogged" routerLink="/security/login">Login</a></li>
+  <li><a *ngIf="userLogged" routerLink="/security/logout">Logout</a></li>
   <li><a routerLink="/department/list">Department</a></li>
   <li><a routerLink="/city/list">Ciudad</a></li>
 </ul>
