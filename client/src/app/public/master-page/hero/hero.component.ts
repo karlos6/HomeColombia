@@ -10,7 +10,6 @@ export class HeroComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("Entro papi")
   }
   
       

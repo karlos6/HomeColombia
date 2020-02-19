@@ -47,10 +47,14 @@ export class SecurityService {
       })
     })
   }
-
+ logoutUser(){
+        localStorage.removeItem("activeUser");
+        this.userInfo.next(new UserModel());
+ }
   saveLoginInfo(user: UserModel){
     user.isLogged = true;
     this.userInfo.next(user);
+    
     localStorage.setItem("activeUser", JSON.stringify(user));
   }
 

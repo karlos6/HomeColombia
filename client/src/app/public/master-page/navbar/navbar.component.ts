@@ -9,7 +9,7 @@ import { UserModel } from 'src/app/models/user.model';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  
   userInfo: UserModel;
   userLogged: boolean = false;
   userName: String;
@@ -19,7 +19,10 @@ export class NavbarComponent implements OnInit {
   constructor(private secService: SecurityService) { }
 
   ngOnInit() {
-    this.verifyUserSession();
+   
+      this.verifyUserSession();
+    
+    
   }
 
   verifyUserSession(){
@@ -30,9 +33,12 @@ export class NavbarComponent implements OnInit {
   }
 
   updateInfo(){
-    let msg = "in session";
+     
     this.userLogged = this.userInfo.isLogged;
-    this.userName = `${msg} ${this.userInfo.firstName} ${this.userInfo.secondName} ${this.userInfo.firstLastName} ${this.userInfo.secondLastName}`;
+    if (this.userLogged) {
+      this.userName=`${this.userInfo.user.username}`;
+    }
+    
   }
 
 }
