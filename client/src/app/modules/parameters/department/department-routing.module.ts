@@ -15,7 +15,7 @@ const routes: Routes = [
     component: DepartmentListComponent
   },
   {
-    path: 'editor:id',
+    path: 'editor/:id',
     component: DepartmentEditorComponent
   },
   {

@@ -58,4 +58,13 @@ export class SecurityService {
     return this.userInfo.getValue().isLogged;
   }
 
+  setToken(token): void{
+    localStorage.setItem("accessToken", token);
+  }
+
+
+  getToken(){
+    return localStorage.getItem('accessToken');
+  }
+
 }
