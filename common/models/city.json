@@ -1,0 +1,37 @@
+{
+  "name": "city",
+  "plural": "cities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "_departmentId": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "supplier_acct": {
+      "type": "belongsTo",
+      "model": "department",
+      "foreignKey": "_departmentId",
+      "primaryKey": "_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

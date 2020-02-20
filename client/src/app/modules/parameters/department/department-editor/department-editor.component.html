@@ -1,9 +1,9 @@
 <br />
 <div class="row">
-    <form [formGroup]="frmValidator"  class="col s12">
+    <form [formGroup]="frmValidator" (ngSubmit)= "UpdateDepartment()" class="col s12">
         <div class="row">
             <div class="input-field col s3">
-                <input id="txtCode" disabled="true" formControlName="code" type="text" class="validate" >
+                <input id="txtCode" disabled="true" formControlName="code" type="text" class="validate">
                 <label for="txtCode" class="active">Code</label>
                 <div class="warning-validation" *ngIf="fv.code.errors  && (fv.code.dirty || fv.code.touched)">
                     <strong *ngIf="fv.code.errors.required">Please, enter a code!</strong>

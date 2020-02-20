@@ -38,5 +38,9 @@
   "department": {
     "dataSource": "db",
     "public": true
+  },
+  "city": {
+    "dataSource": "db",
+    "public": true
   }
 }
