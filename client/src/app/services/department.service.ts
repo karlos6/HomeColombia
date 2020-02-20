@@ -32,4 +32,14 @@ export class DepartmentService {
     .pipe(map(data => data));
   }
 
+
+  saveDepartment(department : DepartmentModel) {
+    //TODO: Obtener token
+    //TODO: not null
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/departments?access_token=${token}`
+    return this.http.post<DepartmentModel>(url_api, department, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+  
 }

@@ -29,7 +29,6 @@ export class DepartmentListComponent implements OnInit {
 
   openConfirmation(code: String){
     this.codeToRemove =  code;
-    console.log("hola")
     openConfirmationModal()
    
   }

@@ -1,4 +1,5 @@
 export class UserModel{
+    id?: string;
     user:{username: String;
         secondName: String;
         firstLastName: String;

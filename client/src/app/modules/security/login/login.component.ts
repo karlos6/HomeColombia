@@ -44,12 +44,15 @@ export class LoginComponent implements OnInit {
           console.log(data);
           this.router.navigate(['/home']);
           this.secService.saveLoginInfo(data);
+          let token = data.id;
+          this.secService.setToken(token);
         }else{
           openHCModalMessage("Data is not valid!")
         }
       });
     }
   }
+  
 
   get fg(){
     return this.fgValidation.controls;
