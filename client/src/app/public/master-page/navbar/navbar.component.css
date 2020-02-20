@@ -16,6 +16,9 @@ margin-bottom: 1%;
 margin-left: 5%;
 float: left;
 }
+.azulito {
+    background-color: #3d4ca0 !important;
+  }
 .nav-link{
     width: 1px;
     height: 1px;
