@@ -13,18 +13,17 @@ export class DepartmentCreatorComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.formGenerator
-  }
-
-  get fv(){
-    return this.frmValidator.controls;
+    this.formGenerator()
   }
 
   formGenerator(){
     this.frmValidator = this.fb.group({
       code: ['',[Validators.required]],
       name: ['', [Validators.required, Validators.minLength(4)]]
-    })
+    });
+  }
+  get fv(){
+    return this.frmValidator.controls;
   }
 
 }

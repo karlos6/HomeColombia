@@ -5,7 +5,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
-import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +14,6 @@ import { HttpClient } from '@angular/common/http';
     SecurityRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClient
   ]
 })
 export class SecurityModule { }

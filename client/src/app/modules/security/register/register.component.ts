@@ -23,7 +23,8 @@ export class RegisterComponent implements OnInit {
       firstname: ['', [Validators.required, Validators.maxLength(12)]],
       lastname: ['', [Validators.required, Validators.maxLength(12)]],
       username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20), Validators.email]],
-      password: ['', [Validators.required, Validators.maxLength(15), Validators.minLength(4)]]
+      password: ['', [Validators.required, Validators.maxLength(15), Validators.minLength(4)]],
+      phone: ['1234',[Validators.max(10),Validators.pattern('/^[0-9]$/')]]
 
     });
   }
