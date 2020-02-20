@@ -1,12 +1,22 @@
 .logo-div{
-    width: 40%;
+    width: 30%;
     height: 100%;
     background-color: white;
     float: left;
- border-top-right-radius: 100%;
+ border-top-right-radius: 50%;
+ border-bottom-right-radius: 50%;
  
 }
 .logo{
 color:black;
+width: 50%;
+height: 80%;
+margin-top: 1.4%;
+margin-bottom: 1%;
+margin-left: 5%;
 float: left;
+}
+.nav-link{
+    width: 1px;
+    height: 1px;
 }
