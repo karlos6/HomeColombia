@@ -49,6 +49,7 @@ export class SecurityService {
   }
  logoutUser(){
         localStorage.removeItem("activeUser");
+        localStorage.removeItem("accessToken")
         this.userInfo.next(new UserModel());
  }
   saveLoginInfo(user: UserModel){
