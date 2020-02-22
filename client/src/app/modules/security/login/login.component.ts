@@ -14,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   fgValidation: FormGroup;
-
+  badData: boolean;
   constructor(private fb: FormBuilder, private secService: SecurityService,
     private router: Router) {
 
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.fgValidationBuilder();
+    this.badData=false;
   }
 
   fgValidationBuilder() {
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginEvent() {
-
+    
     if (this.fgValidation.invalid) {
       alert("Invalid date.");
     } else {
@@ -51,12 +52,13 @@ export class LoginComponent implements OnInit {
         }
       },
         (error) => {
-         alert("Datos erroneos. Ingreselos nuevamente por favor")
+         this.badData=true;
         }
       );
 
 
     }
+    
   }
 
 
