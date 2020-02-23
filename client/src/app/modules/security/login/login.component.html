@@ -41,9 +41,13 @@
                 <strong *ngIf="fg.password.errors.maxlength">
                     Password must be up 15 characters long!
                 </strong>
+                
             </div>
         </div>
         </div>
+        <strong  class="warning-validation" *ngIf="badData==true" >
+            User don´t exist
+         </strong>
         <div class="row">
         <div class="input-field col s12">
             <button [disabled]="fg.username.errors || fg.password.errors" class="btn waves-effect waves-light blue col s12" type="submit">Login
