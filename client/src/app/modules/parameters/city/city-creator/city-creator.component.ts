@@ -14,7 +14,7 @@ declare var initMaterializeSelect: any;
   styleUrls: ['./city-creator.component.css']
 })
 export class CityCreatorComponent implements OnInit {
-  countryList: DepartmentModel[] = [];
+  
   frmValidator: FormGroup;
 
   constructor(private fb: FormBuilder,
@@ -28,7 +28,7 @@ export class CityCreatorComponent implements OnInit {
 
   ngOnInit() {
     this.formGenerator();
-    this.getListDepartment()
+    this.getListDepartment();
   }
 
   ngAfterViewInit(){
@@ -54,14 +54,19 @@ export class CityCreatorComponent implements OnInit {
   }
 
 
+
+
   SaveCity() {
-    let c : CityModel = {
-      code: this.fv.code.value,
-      name: this.fv.name.value,
-      _departmentId  : this.fv.departmentId.value
-    }
-    this.cityService.saveCity(c).subscribe();
-    this.router.navigate(['/city/list'])
+    this.deptService.getDepartmentById(this.fv.departmentId.value).subscribe((departments: DepartmentModel) => {
+      let c : CityModel = {
+        code: this.fv.code.value,
+        name: this.fv.name.value,
+        _departmentId  : this.fv.departmentId.value,
+        departmentName : departments.name 
+      }
+      this.cityService.saveCity(c).subscribe();
+      this.router.navigate(['/city/list'])
+    })  
   }
 
 }

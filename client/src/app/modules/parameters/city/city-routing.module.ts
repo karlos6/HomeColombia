@@ -11,7 +11,7 @@ const routes: Routes = [
     component: CityCreatorComponent
   },
   {
-    path: 'editor:id',
+    path: 'editor/:id',
     component: CityEditorComponent
   },
   {

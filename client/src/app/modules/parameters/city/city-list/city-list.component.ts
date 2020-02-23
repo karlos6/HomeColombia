@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CityService } from 'src/app/services/city.service';
 import { CityModel } from 'src/app/models/city.model';
+import { DepartmentService } from 'src/app/services/department.service';
+import { DepartmentModel } from 'src/app/models/department.model';
 
 declare var openConfirmationModal: any;
 
@@ -14,7 +16,8 @@ export class CityListComponent implements OnInit {
   p: number =1;
   
   codeToRemove:  String;
-  constructor(private cityService : CityService) { }
+  constructor(private cityService : CityService,
+    private deptService : DepartmentService) { }
 
   private cities : CityModel;
 
@@ -27,6 +30,7 @@ export class CityListComponent implements OnInit {
     .subscribe((cities : CityModel) => (this.cities = cities));
     
   }
+
 
   openConfirmation(code: String){
     this.codeToRemove =  code;

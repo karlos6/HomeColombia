@@ -42,4 +42,19 @@ export class CityService {
     return this.http.delete<CityModel>(url_api, { headers: this.headers })
       .pipe(map(data => data));
   }
+
+  
+  getCityById(id: string) {
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/cities/${id}?access_token=${token}`
+    return this.city = this.http.get(url_api);
+  }
+
+  updateCity(city){
+    const cityId =  city.id;
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/cities/${cityId}/?access_token=${token}`
+    return this.http.put<CityModel>(url_api, city, {headers : this.headers})
+    .pipe(map(data => data));
+  }
 }
