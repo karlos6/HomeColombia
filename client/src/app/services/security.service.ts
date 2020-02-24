@@ -14,7 +14,7 @@ export class SecurityService {
 
   constructor(private http: HttpClient) {
     this.verifyUserInSession();
-   }
+  }
 
    headers: HttpHeaders = new HttpHeaders({"content-type": "application/json"});
 
@@ -25,7 +25,7 @@ export class SecurityService {
      }
    }
 
-  getUserInfo(){
+  getUserInfo() {
     return this.userInfo.asObservable();
   }
 
@@ -40,27 +40,30 @@ export class SecurityService {
       })
     })
   }
- logoutUser(){
-        localStorage.removeItem("activeUser");
-        this.userInfo.next(new UserModel());
- }
-  saveLoginInfo(user: UserModel){
+  
+  logoutUser() {
+    localStorage.removeItem("activeUser");
+    localStorage.removeItem("accessToken")
+    this.userInfo.next(new UserModel());
+  }
+
+  saveLoginInfo(user: UserModel) {
     user.isLogged = true;
     this.userInfo.next(user);
-    
+
     localStorage.setItem("activeUser", JSON.stringify(user));
   }
 
-  isActiveSession(){
+  isActiveSession() {
     return this.userInfo.getValue().isLogged;
   }
 
-  setToken(token): void{
+  setToken(token): void {
     localStorage.setItem("accessToken", token);
   }
 
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('accessToken');
   }
 
