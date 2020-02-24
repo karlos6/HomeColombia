@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './public/page-not-found/page-not-found.co
 import { HomeComponent } from './public/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,

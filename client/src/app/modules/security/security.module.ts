@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RecaptchaModule,RecaptchaFormsModule } from 'ng-recaptcha';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { LogoutComponent } from './logout/logout.component';
     SecurityRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
     
   ]
 })

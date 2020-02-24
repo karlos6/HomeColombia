@@ -12,3 +12,4 @@ let openModal = modalId => {
     let instances = M.Modal.init(elem,{});
     instances.open();
 }
+

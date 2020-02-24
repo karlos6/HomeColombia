@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserModel } from '../models/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ export class SecurityService {
     this.verifyUserInSession();
    }
 
+   headers: HttpHeaders = new HttpHeaders({"content-type": "application/json"});
+
    verifyUserInSession(){
      let session = localStorage.getItem("activeUser");
      if( session != undefined){
@@ -27,17 +30,7 @@ export class SecurityService {
   }
 
   loginUser(username: String, pass: String): Observable<UserModel>{
-    /*let user = null;
-    if(username =='admin@gmail.com' && pass =='12345678'){
-      user = new UserModel();
-      user.firstName = 'Admistrator';
-      user.secondName = 'secondName';
-      user.firstLastName = 'firstLastName';
-      user.email = 'admin@gmail.com';
-      user.isLogged = true;
-      this.userInfo.next(user);
-    }
-    return user;*/
+  
     return this.http.post<UserModel>(`${this.url}login?include=user`, {
       email: username,
       password: pass
@@ -69,6 +62,17 @@ export class SecurityService {
 
   getToken(){
     return localStorage.getItem('accessToken');
+  }
+
+  registerUser(user: UserModel){
+
+    console.log(user)
+
+    const url_api = "http://localhost:3000/api/Users"
+
+    return this.http.post<UserModel>(url_api,user,{headers: this.headers}).
+    pipe(map(data => data))
+
   }
 
 }

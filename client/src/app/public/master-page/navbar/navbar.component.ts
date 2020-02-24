@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
      
     this.userLogged = this.userInfo.isLogged;
     if (this.userLogged) {
-      this.userName=`${this.userInfo.user.username}`;
+      this.userName=`${this.userInfo.username}`;
     }
     
   }
