@@ -42,5 +42,9 @@
   "city": {
     "dataSource": "db",
     "public": true
+  },
+  "LoginUser": {
+    "dataSource": "db",
+    "public": true
   }
 }
