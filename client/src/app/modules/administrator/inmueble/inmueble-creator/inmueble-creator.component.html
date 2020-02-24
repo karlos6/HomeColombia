@@ -1,1 +1,134 @@
-<p>inmueble-creator works!</p>
+<br />
+<div class="container section ">
+    <div class="row ">
+        <form [formGroup]="RValidation" class="col s12">
+                <br>
+                <h4 class="aviso">DATOS DEL AVISO</h4>
+
+                <div class= "row">
+                    <div class="input-field col s6">
+                        <select class="browser-default">
+                          <option value="">TIPO DE OFERTA</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                        
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select class="browser-default" >
+                          <option value="">TIPO DE INMUEBLE</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                      </div>
+                    
+
+                </div>
+
+                <h4 class="aviso">UBICACIÓN DEL INMUEBLE</h4>
+                <div class="row">
+
+                    <div class="input-field col s6">
+                        <select class="browser-default">
+                          <option value="">DEPARTAMENTO</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                        
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select class="browser-default" >
+                          <option value="">CIUDAD</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                      </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="firstLastName" formControlName="firstname" type="text" class="validate">
+                        <label for="firstLastName">BARRIO</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input id="secondLastName" formControlName="firstname" type="text" class="validate">
+                        <label for="secondLastName">DIRECCIÓN</label>
+                    </div>
+                    
+                </div>
+
+                <h4 class="aviso">DESCRIPCIÓN DEL INMUEBLE</h4>
+                <!-- APELLIDOS-->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="firstLastName" formControlName="firstname" type="text" class="validate">
+                        <label for="firstLastName">PRECIO</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select class="browser-default" >
+                          <option value="">ESTRATO</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                      </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="address" formControlName="firstname" type="text" class="validate">
+                        <label for="address">AREA</label>
+                    </div>
+
+
+                    <div class="input-field col s6">
+                        <select class="browser-default" >
+                          <option value="">NÚMERO DE HABITACIONES</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                      </div>
+                </div>
+
+                <div class= "row">
+                    <div class="input-field col s6">
+                        <select class="browser-default">
+                          <option value="">NÚMERO DE BAÑOS</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                        
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select class="browser-default" >
+                          <option value="">ESTADO EL INMUEBLE</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                      </div>
+                </div>
+
+                <h4 class="aviso">CARACTERÍSTICAS</h4>
+
+                <div class= "row">
+                    <textarea name="textarea" rows="10" cols="50">Write something here</textarea>
+                </div>
+
+                <h4 class="aviso">FOTOGRAFÍAS DEL ANUNCIO</h4>
+        </form>
+    </div>
+</div>
+
+<br />
