@@ -6,12 +6,15 @@ import { InmuebleListComponent } from './inmueble-list/inmueble-list.component';
 import { InmuebleCreatorComponent } from './inmueble-creator/inmueble-creator.component';
 import { InmuebleEditorComponent } from './inmueble-editor/inmueble-editor.component';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [InmuebleListComponent, InmuebleCreatorComponent, InmuebleEditorComponent],
   imports: [
     CommonModule,
-    InmuebleRoutingModule
+    InmuebleRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class InmuebleModule { }
