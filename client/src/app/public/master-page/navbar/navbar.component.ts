@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SecurityService } from 'src/app/services/security.service';
 import { Subscription } from 'rxjs';
-import { UserModel } from 'src/app/models/user.model';
+import { LoginUserModel } from 'src/app/models/loginUser.model';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +10,7 @@ import { UserModel } from 'src/app/models/user.model';
 })
 export class NavbarComponent implements OnInit {
   
-  userInfo: UserModel;
+  userInfo:LoginUserModel ;
   userLogged: boolean = false;
   userName: String;
 
@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
      
     this.userLogged = this.userInfo.isLogged;
     if (this.userLogged) {
-      this.userName=`${this.userInfo.username}`;
+      this.userName=`${this.userInfo.user.username}`;
     }
     
   }

@@ -1,0 +1,26 @@
+{
+  "name": "LoginUser",
+  "plurar": "LoginUsers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "user": {
+      "type": "UserModel",
+      "required": true
+    },
+    "isLogged": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { UserModel } from '../models/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { LoginUserModel } from '../models/loginUser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { map } from 'rxjs/operators';
 export class SecurityService {
 
   url: String = "http://localhost:3000/api/Users/";
-  userInfo = new BehaviorSubject<UserModel>(new UserModel());
+  userInfo = new BehaviorSubject<LoginUserModel>(new LoginUserModel());
 
   constructor(private http: HttpClient) {
     this.verifyUserInSession();
@@ -29,9 +30,9 @@ export class SecurityService {
     return this.userInfo.asObservable();
   }
 
-  loginUser(username: String, pass: String): Observable<UserModel>{
+  loginUser(username: String, pass: String): Observable<LoginUserModel>{
   
-    return this.http.post<UserModel>(`${this.url}login?include=user`, {
+    return this.http.post<LoginUserModel>(`${this.url}login?include=user`, {
       email: username,
       password: pass
     }, {
@@ -44,10 +45,10 @@ export class SecurityService {
   logoutUser() {
     localStorage.removeItem("activeUser");
     localStorage.removeItem("accessToken")
-    this.userInfo.next(new UserModel());
+    this.userInfo.next(new LoginUserModel());
   }
 
-  saveLoginInfo(user: UserModel) {
+  saveLoginInfo(user: LoginUserModel) {
     user.isLogged = true;
     this.userInfo.next(user);
 
