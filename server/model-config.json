@@ -42,5 +42,9 @@
   "city": {
     "dataSource": "db",
     "public": true
+  },
+  "containers": {
+    "dataSource": "UploadFiles",
+    "public": true
   }
 }

@@ -3,7 +3,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SecurityService } from 'src/app/services/security.service';
 import { UserModel } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
-declare var openConfirmationModal: any;
+
+declare let mensajeModalGenerico: any;
+declare let mostrarMensajeDeError:any;
+
 
 @Component({
   selector: 'app-register',
@@ -43,6 +46,8 @@ export class RegisterComponent implements OnInit {
   onRegister() {
 
     if (this.RValidation.valid && this.captchap != null) {
+      mensajeModalGenerico("carlos");
+      //mostrarMensajeDeError("carlos desde el alert");
       let c = new UserModel();
       c = {
         username: this.rr.username.value,
@@ -55,8 +60,9 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/security/login'])
       })
       console.log(this.captchap)
-    } else {
-      openConfirmationModal()
+
+    } else if(this.RValidation.valid && this.captchap === null) {
+      mostrarMensajeDeError("olvido validar el captchap");
     }
   }
 
@@ -67,6 +73,7 @@ export class RegisterComponent implements OnInit {
     this.captchap = captchaResponse
   }
 
+  
 
 
 }
