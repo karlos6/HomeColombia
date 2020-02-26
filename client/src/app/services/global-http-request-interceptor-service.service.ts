@@ -3,6 +3,7 @@ import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, Htt
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+declare function mensajeModalGenerico(m): any;
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class GlobalHttpRequestInterceptorServiceService implements HttpIntercept
                 break;
               case 403:     //forbidden
                 this.router.navigateByUrl("/unauthorized");
+                break;
+              case 422:     //forbidden
+                mensajeModalGenerico("el correo o nombre de usuario ya existe")
+                console.log("Error 422, el usuario o el email ya existen.");
                 break;
             }
           }
