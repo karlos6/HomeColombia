@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthenticationRequiredGuard } from 'src/app/helpers/guards/authentication-required.guard';
+import { UnauthenticationRequiredGuard } from 'src/app/helpers/guards/unauthentication-required.guard';
 
 
 const routes: Routes = [
@@ -13,12 +15,14 @@ const routes: Routes = [
 
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [UnauthenticationRequiredGuard]
   },
 
   {
     path: 'logout',
-    component: LogoutComponent
+    component: LogoutComponent,
+    canActivate: [AuthenticationRequiredGuard]
   },
 
   {
