@@ -45,6 +45,10 @@
   },
   "LoginUser": {
     "dataSource": "db",
+    "public":true
+  },
+  "containers": {
+    "dataSource": "UploadFiles",
     "public": true
   },
   "containers": {

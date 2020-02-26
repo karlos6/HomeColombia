@@ -68,7 +68,7 @@ export class SecurityService {
     return localStorage.getItem('accessToken');
   }
 
-  registerUser(user: UserModel){
+  registerUser(user: UserModel):Observable<UserModel>{
 
     console.log(user)
 
