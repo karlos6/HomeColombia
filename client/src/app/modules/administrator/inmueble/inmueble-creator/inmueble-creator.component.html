@@ -1,134 +1,138 @@
 <br />
 <div class="container section ">
-    <div class="row ">
-        <form [formGroup]="RValidation" class="col s12">
-                <br>
-                <h4 class="aviso">DATOS DEL AVISO</h4>
+  <div class="row ">
+    <form [formGroup]="frmValidator"   class="col s12">
+      <br>
+      <h4 class="aviso">DATOS DEL AVISO</h4>
 
-                <div class= "row">
-                    <div class="input-field col s6">
-                        <select class="browser-default">
-                          <option value="">TIPO DE OFERTA</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                        
-                    </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <select class="browser-default"  formControlName="TipoOferta">
+            <option value="">TIPO DE OFERTA</option>
+            <option value="VENTA">VENTA</option>
+            <option value="ARRIENDO">ARRIENDO</option>
+          </select>
 
-                    <div class="input-field col s6">
-                        <select class="browser-default" >
-                          <option value="">TIPO DE INMUEBLE</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                      </div>
-                    
+        </div>
 
-                </div>
-
-                <h4 class="aviso">UBICACIÓN DEL INMUEBLE</h4>
-                <div class="row">
-
-                    <div class="input-field col s6">
-                        <select class="browser-default">
-                          <option value="">DEPARTAMENTO</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                        
-                    </div>
-
-                    <div class="input-field col s6">
-                        <select class="browser-default" >
-                          <option value="">CIUDAD</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                      </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="firstLastName" formControlName="firstname" type="text" class="validate">
-                        <label for="firstLastName">BARRIO</label>
-                    </div>
-
-                    <div class="input-field col s6">
-                        <input id="secondLastName" formControlName="firstname" type="text" class="validate">
-                        <label for="secondLastName">DIRECCIÓN</label>
-                    </div>
-                    
-                </div>
-
-                <h4 class="aviso">DESCRIPCIÓN DEL INMUEBLE</h4>
-                <!-- APELLIDOS-->
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="firstLastName" formControlName="firstname" type="text" class="validate">
-                        <label for="firstLastName">PRECIO</label>
-                    </div>
-
-                    <div class="input-field col s6">
-                        <select class="browser-default" >
-                          <option value="">ESTRATO</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                      </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="address" formControlName="firstname" type="text" class="validate">
-                        <label for="address">AREA</label>
-                    </div>
+        <div class="input-field col s6">
+          <select class="browser-default"  formControlName="TipoInmueble">
+            <option value="">TIPO DE INMUEBLE</option>
+            <option value="APARTAMENTO">APARTAMENTO</option>
+            <option value="CASA">CASA</option>
+            <option value="APARTAESTUDIO">APARTAESTUDIO</option>
+            <option value="OFICINA">OFICINA</option>
+            <option value="HABITACION">HABITACION</option>
+            <option value="APARTAESTUDIO">APARTAESTUDIO</option>
+            <option value="CASALOTE">CASA LOTE</option>
+          </select>
+        </div>
 
 
-                    <div class="input-field col s6">
-                        <select class="browser-default" >
-                          <option value="">NÚMERO DE HABITACIONES</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                      </div>
-                </div>
+      </div>
 
-                <div class= "row">
-                    <div class="input-field col s6">
-                        <select class="browser-default">
-                          <option value="">NÚMERO DE BAÑOS</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                        
-                    </div>
+      <h4 class="aviso">UBICACIÓN DEL INMUEBLE</h4>
+      <div class="row">
 
-                    <div class="input-field col s6">
-                        <select class="browser-default" >
-                          <option value="">ESTADO EL INMUEBLE</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                      </div>
-                </div>
+        <div class="input-field col s6">
+          <select class="browser-default" formControlName="departmentId">
+            <option value="">DEPARTAMENTO</option>
+            <option *ngFor="let c of departments" value="{{c.id}}">{{c.name}}</option>
+          </select>
+        </div>
 
-                <h4 class="aviso">CARACTERÍSTICAS</h4>
+        <div class="input-field col s6">
+          <select class="browser-default" formControlName="cityId">
+            <option value="">CIUDAD</option>
+            <option *ngFor="let c of cities" value="{{c.id}}">{{c.name}}</option>
+          </select>
+        </div>
 
-                <div class= "row">
-                    <textarea name="textarea" rows="10" cols="50">Write something here</textarea>
-                </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="barrio"  formControlName="Barrio" type="text" class="validate">
+          <label for="barrio">BARRIO</label>
+        </div>
 
-                <h4 class="aviso">FOTOGRAFÍAS DEL ANUNCIO</h4>
-        </form>
-    </div>
+        <div class="input-field col s6">
+          <input id="direccion" formControlName="Direccion" type="text" class="validate">
+          <label for="direccion">DIRECCIÓN</label>
+        </div>
+
+      </div>
+
+      <h4 class="aviso">DESCRIPCIÓN DEL INMUEBLE</h4>
+      <!-- APELLIDOS-->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="precio" formControlName="Precio"  type="text" class="validate">
+          <label for="precio">PRECIO</label>
+        </div>
+
+        <div class="input-field col s6">
+          <select class="browser-default" formControlName="Estrato">
+            <option value="">ESTRATO</option>
+            <option value="E1">1</option>
+            <option value="E2">2</option>
+            <option value="E3">3</option>
+            <option value="E4">4</option>
+            <option value="E5">5</option>
+            <option value="E6">6</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="area" formControlName="Area" type="text" class="validate">
+          <label for="area">AREA</label>
+        </div>
+
+
+        <div class="input-field col s6">
+          <select class="browser-default" formControlName="NumeroHabitaciones" >
+            <option value="">NÚMERO DE HABITACIONES</option>
+            <option value="H1">1</option>
+            <option value="H2">2</option>
+            <option value="H3">3</option>
+            <option value="H4">4</option>
+            <option value="H5">5</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <select class="browser-default" formControlName="NumeroBaños">
+            <option value="">NÚMERO DE BAÑOS</option>
+            <option value="B1">1</option>
+            <option value="B2">2</option>
+            <option value="B3">3</option>
+            <option value="B4">4</option>
+          </select>
+
+        </div>
+
+        <div class="input-field col s6">
+          <select class="browser-default" formControlName="EstadoInmueble">
+            <option value="">ESTADO EL INMUEBLE</option>
+            <option value="BUENO">BUENO</option>
+            <option value="EXCELENTE">EXCELENTE</option>
+            <option value="REMODELADO">REMODELADO</option>
+          </select>
+        </div>
+      </div>
+
+      <h4 class="aviso">CARACTERÍSTICAS</h4>
+
+      <div class="row">
+        <textarea name="textarea" rows="10" cols="50">Write something here</textarea>
+      </div>
+
+      <h4 class="aviso">FOTOGRAFÍAS DEL ANUNCIO</h4>
+    </form>
+  </div>
 </div>
 
 <br />

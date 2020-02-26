@@ -9,5 +9,11 @@
     "user": "",
     "useNewUrlParser": true,
     "connector": "mongodb"
+  },
+  "UploadFiles": {
+    "name": "UploadFiles",
+    "connector": "loopback-component-storage",
+    "provider": "fileSystem",
+    "root": "./server/files"
   }
 }

@@ -2,6 +2,6 @@ export class CityModel{
     id?: string
     code?: string;
     name?: string;
-    _departmentId? :string;
+    departmentId? :string;
     departmentName? :string;
 }

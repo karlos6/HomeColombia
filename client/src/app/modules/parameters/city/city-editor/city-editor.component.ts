@@ -55,7 +55,7 @@ export class CityEditorComponent implements OnInit {
     this.cityService.getCityById(id).subscribe((city: CityModel) => {
       this.fv.code.setValue(city.code)
       this.fv.name.setValue(city.name)
-      this.fv.departmentId.setValue(city._departmentId)
+      this.fv.departmentId.setValue(city.departmentId)
     });  
   }
 
@@ -71,7 +71,7 @@ export class CityEditorComponent implements OnInit {
           id  : this.route.snapshot.paramMap.get("id"),
           code: this.fv.code.value,
           name: this.fv.name.value,
-          _departmentId  : this.fv.departmentId.value,
+          departmentId : this.fv.departmentId.value,
           departmentName : departments.name 
         }
         console.log(c)

@@ -1,11 +1,11 @@
 {
   "name": "LoginUser",
-  "plurar": "LoginUsers",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
+  "plurar": "LoginUsers",
   "properties": {
     "_id": {
       "type": "string"

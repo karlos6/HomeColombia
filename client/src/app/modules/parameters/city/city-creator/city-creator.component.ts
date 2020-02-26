@@ -61,7 +61,7 @@ export class CityCreatorComponent implements OnInit {
       let c : CityModel = {
         code: this.fv.code.value,
         name: this.fv.name.value,
-        _departmentId  : this.fv.departmentId.value,
+        departmentId  : this.fv.departmentId.value,
         departmentName : departments.name 
       }
       this.cityService.saveCity(c).subscribe();
