@@ -72,7 +72,8 @@ export class InmuebleCreatorComponent implements OnInit {
   }
 
   getListCityxDepartment(){
-   this.cityService.getCitesxDepartment("CALDAS")
+  let dept = this.fv.departmentId.value;
+   this.cityService.getCitesxDepartment(dept)
    .subscribe((cities: CityModel) => (this.cities = cities))
   
   }
