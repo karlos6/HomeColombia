@@ -1,4 +1,5 @@
 export class UserModel {
+    rol?:string;
     id?: string;
     username?: String;
     lastName?: String;

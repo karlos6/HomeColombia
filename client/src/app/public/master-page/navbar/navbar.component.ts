@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   userInfo:LoginUserModel ;
   userLogged: boolean = false;
   userName: String;
+  rol:String;
 
   subscription: Subscription
 
@@ -35,6 +36,7 @@ export class NavbarComponent implements OnInit {
   updateInfo(){
      
     this.userLogged = this.userInfo.isLogged;
+    this.rol=this.userInfo.user.rol;
     if (this.userLogged) {
       this.userName=`${this.userInfo.user.username}`;
     }
