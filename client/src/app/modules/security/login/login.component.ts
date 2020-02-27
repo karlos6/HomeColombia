@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SecurityService } from 'src/app/services/security.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -23,33 +24,33 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.fgValidationBuilder();
     this.badData=false;
+    
   }
 
   fgValidationBuilder() {
     this.fgValidation = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(40), Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(15)]]
+      password: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(15)]]
     });
   }
 
   loginEvent() {
     
     if (this.fgValidation.invalid) {
-      alert("Invalid date.");
+      alert("Invalid datA.");
     } else {
       let u = this.fg.username.value;
       let p = this.fg.password.value;
 
       this.secService.loginUser(u, p).subscribe(data => {
 
-        if (data != null) {
           this.router.navigate(['/home']);
           this.secService.saveLoginInfo(data);
           let token = data.id;
+          
           this.secService.setToken(token);
-        } else {
-          console.log("Data is not valid!")
-        }
+       
+        
       },
         (error) => {
          this.badData=true;

@@ -1,6 +1,7 @@
 export class LoginUserModel {
     id?: string;
 user:{
+    rol?:String;
     username?: String;
     lastName?: String;
     email?: String;
