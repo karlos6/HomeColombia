@@ -13,6 +13,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { GlobalHttpRequestInterceptorServiceService } from 'src/app/services/global-http-request-interceptor-service.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,

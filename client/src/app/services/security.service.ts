@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserModel } from '../models/user.model';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { LoginUserModel } from '../models/loginUser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,41 +11,44 @@ import { catchError } from 'rxjs/operators';
 export class SecurityService {
 
   url: String = "http://localhost:3000/api/Users/";
-  userInfo = new BehaviorSubject<UserModel>(new UserModel());
+  userInfo = new BehaviorSubject<LoginUserModel>(new LoginUserModel());
 
   constructor(private http: HttpClient) {
     this.verifyUserInSession();
   }
 
-  verifyUserInSession() {
-    let session = localStorage.getItem("activeUser");
-    if (session != undefined) {
-      this.userInfo.next(JSON.parse(session));
-    }
-  }
+   headers: HttpHeaders = new HttpHeaders({"content-type": "application/json"});
+
+   verifyUserInSession(){
+     let session = localStorage.getItem("activeUser");
+     if( session != undefined){
+       this.userInfo.next(JSON.parse(session));
+     }
+   }
 
   getUserInfo() {
     return this.userInfo.asObservable();
   }
 
-
-  loginUser(username: String, pass: String): Observable<UserModel> {
-      return this.http.post<UserModel>(`${this.url}login?include=user`, {
-        email: username,
-        password: pass
-      }, {
-        headers: new HttpHeaders({
-          "content-type": "application/json"
-        })
-      }, )
+  loginUser(username: String, pass: String): Observable<LoginUserModel>{
+  
+    return this.http.post<LoginUserModel>(`${this.url}login?include=user`, {
+      email: username,
+      password: pass
+    }, {
+      headers: new HttpHeaders({
+        "content-type": "application/json"
+      })
+    })
   }
-
-
+  
   logoutUser() {
     localStorage.removeItem("activeUser");
-    this.userInfo.next(new UserModel());
+    localStorage.removeItem("accessToken")
+    this.userInfo.next(new LoginUserModel());
   }
-  saveLoginInfo(user: UserModel) {
+
+  saveLoginInfo(user: LoginUserModel) {
     user.isLogged = true;
     this.userInfo.next(user);
 
@@ -62,6 +66,17 @@ export class SecurityService {
 
   getToken() {
     return localStorage.getItem('accessToken');
+  }
+
+  registerUser(user: UserModel):Observable<UserModel>{
+
+    console.log(user)
+
+    const url_api = "http://localhost:3000/api/Users"
+
+    return this.http.post<UserModel>(url_api,user,{headers: this.headers}).
+    pipe(map(data => data))
+
   }
 
 }

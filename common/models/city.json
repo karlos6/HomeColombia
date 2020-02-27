@@ -18,7 +18,11 @@
       "type": "string",
       "required": true
     },
-    "_departmentId": {
+    "departmentId": {
+      "type": "string",
+      "required": true
+    },
+    "departmentName": {
       "type": "string",
       "required": true
     }
@@ -28,7 +32,7 @@
     "supplier_acct": {
       "type": "belongsTo",
       "model": "department",
-      "foreignKey": "_departmentId",
+      "foreignKey": "departmentId",
       "primaryKey": "_id"
     }
   },
