@@ -50,9 +50,5 @@
   "containers": {
     "dataSource": "UploadFiles",
     "public": true
-  },
-  "containers": {
-    "dataSource": "UploadFiles",
-    "public": true
   }
 }
