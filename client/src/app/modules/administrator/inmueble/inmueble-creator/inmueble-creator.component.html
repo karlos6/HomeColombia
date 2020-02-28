@@ -130,16 +130,35 @@
         <textarea name="textarea" rows="10" cols="50">Write something here</textarea>
       </div>
 
+
+
       <h4 class="aviso">FOTOGRAFÍAS DEL ANUNCIO</h4>
-      <div class="custom-file">
-        <form action="/api/upload" method="post" enctype="multipart/form-data">
-          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-        </form>
-        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+
+
+      <!-- SUBIR IMAGEN-->
+
+      <div class="row">
+
+        <span  class="input-group-text upload"  (click)="upload()"  id="btnUpload">Upload</span>
+
+        <input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01"
+          aria-describedby="inputGroupFileAddon01">
+
+
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
     </form>
   </div>
 </div>
 <br />
-
-

@@ -5,6 +5,8 @@ import { DepartmentService } from 'src/app/services/department.service';
 import { CityService } from 'src/app/services/city.service';
 import { DepartmentModel } from 'src/app/models/department.model';
 import { CityModel } from 'src/app/models/city.model';
+import { InmuebleService } from 'src/app/services/inmueble.service';
+import { HttpClient } from '@angular/common/http';
 
 
 declare var initMaterializeSelect: any;
@@ -18,11 +20,14 @@ declare var initMaterializeSelect: any;
 export class InmuebleCreatorComponent implements OnInit {
 
   frmValidator: FormGroup;
+  uploadedFiles: Array<File>;
 
   constructor(private fb: FormBuilder,
-    private router:   Router ,
+    private router: Router,
     private deptService: DepartmentService,
-    private  cityService : CityService) { }
+    private cityService: CityService,
+    private secInmueble: InmuebleService,
+    private http: HttpClient) { }
 
   private departments: DepartmentModel;
   private cities: DepartmentModel;
@@ -31,10 +36,10 @@ export class InmuebleCreatorComponent implements OnInit {
     this.formGenerator();
     this.getListDepartment();
     this.getListCityxDepartment();
-    
+
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     initMaterializeSelect()
   }
 
@@ -50,7 +55,7 @@ export class InmuebleCreatorComponent implements OnInit {
       departmentName: ['', [Validators.required]],
       cityId: ['', [Validators.required]],
       cityName: ['', [Validators.required]],
-      
+
       Barrio: ['', [Validators.required]],
       Direccion: ['', [Validators.required]],
       Precio: ['', [Validators.required]],
@@ -61,20 +66,38 @@ export class InmuebleCreatorComponent implements OnInit {
       EstadoInmueble: ['', [Validators.required]],
       Descripcion: ['', [Validators.required]],
       Imagen: ['', [Validators.required]],
-      
+
     });
   }
 
-  
+
   getListDepartment() {
     this.deptService.getAllDepartments()
-    .subscribe((departments: DepartmentModel) => (this.departments = departments));
+      .subscribe((departments: DepartmentModel) => (this.departments = departments));
   }
 
-  getListCityxDepartment(){
-   this.cityService.getCitesxDepartment("CALDAS")
-   .subscribe((cities: CityModel) => (this.cities = cities))
-  
+  getListCityxDepartment() {
+    this.cityService.getCitesxDepartment("CALDAS")
+      .subscribe((cities: CityModel) => (this.cities = cities))
+
   }
+
+
+  fileChange(element) {
+    this.uploadedFiles = element.target.files;
+  }
+
+  //  METODO PARA CARGAR LAS IMAGENES
+  upload() {
+
+    let formData = new FormData();
+    for (var i = 0; i < this.uploadedFiles.length; i++) {
+        formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
+    }
+    
+    this.secInmueble.loadImagen(formData);
+
+  }
+
 
 }

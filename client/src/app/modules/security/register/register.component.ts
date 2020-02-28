@@ -5,7 +5,7 @@ import { UserModel } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 
 declare let mensajeModalGenerico: any;
-declare let mostrarMensajeDeError:any;
+declare let mostrarMensajeDeError: any;
 
 
 @Component({
@@ -45,10 +45,10 @@ export class RegisterComponent implements OnInit {
   /* REGISTRO USUARIO */
   onRegister() {
 
+    /* Validacion inicial registro de formulario*/
     if (this.RValidation.valid && this.captchap != null) {
-      mensajeModalGenerico("carlos");
-      //mostrarMensajeDeError("carlos desde el alert");
       let c = new UserModel();
+
       c = {
         username: this.rr.username.value,
         lastName: this.rr.lastname.value,
@@ -56,24 +56,29 @@ export class RegisterComponent implements OnInit {
         password: this.rr.password.value,
         cellphone: this.rr.phone.value
       }
+      
       this.secSevice.registerUser(c).subscribe(c => {
         this.router.navigate(['/security/login'])
       })
       console.log(this.captchap)
 
-    } else if(this.RValidation.valid && this.captchap === null) {
-      mostrarMensajeDeError("olvido validar el captchap");
+    } else if (this.RValidation.valid && this.captchap === null) {
+      mostrarMensajeDeError("You forgot captchap validation ");
+    }
+    else if (this.RValidation.invalid && this.captchap != null) {
+      mostrarMensajeDeError("the data is invalid");
+
     }
   }
 
   /* RECAPTCHA VARIABLE Y FUNCION */
   captchap: string = null;
-    
+
   resolved(captchaResponse: string) {
     this.captchap = captchaResponse
   }
 
-  
+
 
 
 }
