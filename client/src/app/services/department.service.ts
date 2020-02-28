@@ -62,4 +62,10 @@ export class DepartmentService {
     return this.http.put<DepartmentModel>(url_api, department, { headers: this.headers })
       .pipe(map(data => data));
   }
+
+  existdepartmentName(name : string){
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/departments/findOne?filter=%7B%22where%22%3A%7B%22name%22%3A%20%22${name}%22%7D%7D`
+    return this.department = this.http.get(url_api);  
+  }
 }

@@ -18,6 +18,8 @@ export class DepartmentCreatorComponent implements OnInit {
     private router: Router,
     private deptService: DepartmentService) { }
 
+    private departments: DepartmentModel;
+
   ngOnInit() {
     this.formGenerator();
   }
@@ -35,12 +37,21 @@ export class DepartmentCreatorComponent implements OnInit {
 
 
   SaveDepartment() {
+    let name = this.fv.name.value
+    this.deptService.existdepartmentName(name).subscribe((departments: DepartmentModel) => {
+      if(this.fv.name.value ==  departments.name){
+        console.log("ya existe ese departamento")
+      }
+    })   
+
     let c : DepartmentModel = {
       code: this.fv.code.value,
       name: this.fv.name.value
     }
-    this.deptService.saveDepartment(c).subscribe();
-    this.router.navigate(['/department/list'])
+    console.log(c)
+
+    //this.deptService.saveDepartment(c).subscribe();
+    //this.router.navigate(['/department/list'])
   }
 
 }

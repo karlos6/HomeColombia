@@ -25,7 +25,7 @@ export class InmuebleCreatorComponent implements OnInit {
     private  cityService : CityService) { }
 
   private departments: DepartmentModel;
-  private cities: DepartmentModel;
+  private cities: CityModel;
 
   ngOnInit() {
     this.formGenerator();

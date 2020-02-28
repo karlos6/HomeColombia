@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let dept of departments | paginate: { itemsPerPage: 3, currentPage: p}">
+        <tr *ngFor="let dept of departments | paginate: { itemsPerPage: 8, currentPage: p}">
             <td>
                 {{dept.code}}
             </td>
