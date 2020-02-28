@@ -61,8 +61,9 @@ export class CityService {
     .pipe(map(data => data));
   }
 
-  getCitesxDepartment(departmentName: string){
-    const url_api = `http://localhost:3000/api/cities?filter=%7B%22where%22%3A%7B%22departmentName%22%3A%22${departmentName}%22%7D%7D`
+  getCitesxDepartment(departmentId: string){
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/cities?filter=%7B%22where%22%20%3A%20%7B%22departmentId%22%20%3A%20%7B%20%22like%22%20%3A%20%22${departmentId}%22%7D%7D%7D&access_token=${token}`
     return this.city = this.http.get(url_api);
   }
 }

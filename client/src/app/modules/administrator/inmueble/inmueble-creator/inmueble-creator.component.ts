@@ -76,10 +76,11 @@ export class InmuebleCreatorComponent implements OnInit {
       .subscribe((departments: DepartmentModel) => (this.departments = departments));
   }
 
-  getListCityxDepartment() {
-    this.cityService.getCitesxDepartment("CALDAS")
-      .subscribe((cities: CityModel) => (this.cities = cities))
-
+  getListCityxDepartment(){
+  let dept = this.fv.departmentId.value;
+   this.cityService.getCitesxDepartment(dept)
+   .subscribe((cities: CityModel) => (this.cities = cities))
+  
   }
 
 
