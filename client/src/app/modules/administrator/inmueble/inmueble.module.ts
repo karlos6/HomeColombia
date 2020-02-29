@@ -7,6 +7,7 @@ import { InmuebleCreatorComponent } from './inmueble-creator/inmueble-creator.co
 import { InmuebleEditorComponent } from './inmueble-editor/inmueble-editor.component';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {NgxPaginationModule}  from 'ngx-pagination';
 
 @NgModule({
   declarations: [InmuebleListComponent, InmuebleCreatorComponent, InmuebleEditorComponent],
@@ -14,7 +15,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModule,
     InmuebleRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class InmuebleModule { }

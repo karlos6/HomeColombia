@@ -32,9 +32,6 @@ export class GlobalHttpRequestInterceptorServiceService implements HttpIntercept
                 mensajeModalGenerico("el correo o nombre de usuario ya existe")
                 console.log("Error 422, el usuario o el email ya existen.");
                 break;
-              case 404: 
-                console.log("Error 404, sigue");
-                break;
             }
           }
         } else {

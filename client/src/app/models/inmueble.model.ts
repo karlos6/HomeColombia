@@ -12,8 +12,8 @@ export class InmuebleModel{
     Estrato?: string;
     Area? : string;
     NumeroHabitaciones? :string;
-    NumeroBaños? : string;
+    NumeroBanos? : string;
     EstadoInmueble? : string;
     Descripcion? : string;
-    Imagen? :string;
+    Imagen? :{};
 }
