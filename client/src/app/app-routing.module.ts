@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 import { HomeComponent } from './public/home/home.component';
+import { AuthenticationRequiredGuard } from './helpers/guards/authentication-required.guard';
 
 
 const routes: Routes = [
@@ -22,15 +23,18 @@ const routes: Routes = [
   },
   {
     path: 'department',
-    loadChildren: './modules/parameters/department/department.module#DepartmentModule'    
+    loadChildren: './modules/parameters/department/department.module#DepartmentModule',
+    canActivate: [AuthenticationRequiredGuard]    
   },
   {
     path: 'city',
-    loadChildren: './modules/parameters/city/city.module#CityModule'    
+    loadChildren: './modules/parameters/city/city.module#CityModule',
+    canActivate: [AuthenticationRequiredGuard]    
   },
   {
     path: 'inmueble',
-    loadChildren: './modules/administrator/inmueble/inmueble.module#InmuebleModule'    
+    loadChildren: './modules/administrator/inmueble/inmueble.module#InmuebleModule',
+    canActivate: [AuthenticationRequiredGuard]
   },
   {
     path: '**',
