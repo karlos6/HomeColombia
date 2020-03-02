@@ -23,17 +23,17 @@ const routes: Routes = [
   },
   {
     path: 'department',
-    loadChildren: './modules/parameters/department/department.module#DepartmentModule',
+    loadChildren: './modules/parameters/department/department.module#DepartmentModule' ,
     canActivate: [AuthenticationRequiredGuard]    
   },
   {
     path: 'city',
-    loadChildren: './modules/parameters/city/city.module#CityModule',
+    loadChildren: './modules/parameters/city/city.module#CityModule' ,
     canActivate: [AuthenticationRequiredGuard]    
   },
   {
     path: 'inmueble',
-    loadChildren: './modules/administrator/inmueble/inmueble.module#InmuebleModule',
+    loadChildren: './modules/administrator/inmueble/inmueble.module#InmuebleModule' ,
     canActivate: [AuthenticationRequiredGuard]
   },
   {
