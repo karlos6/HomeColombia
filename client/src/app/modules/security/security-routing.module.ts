@@ -10,8 +10,7 @@ import { UnauthenticationRequiredGuard } from 'src/app/helpers/guards/unauthenti
 const routes: Routes = [
   {
     path: 'register',
-    component: RegisterComponent ,
-    canActivate: [UnauthenticationRequiredGuard]
+    component: RegisterComponent 
   },
 
   {
