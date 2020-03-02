@@ -5,7 +5,7 @@ import { UserModel } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 
 declare let mensajeModalGenerico: any;
-declare let mostrarMensajeDeError:any;
+declare let mostrarMensajeDeError: any;
 
 
 @Component({
@@ -28,11 +28,11 @@ export class RegisterComponent implements OnInit {
   RValidationBuilder() {
     this.RValidation = this.rb.group({
 
-      username: ['carlos', [Validators.required]],
-      lastname: ['muñoz', [Validators.required]],
-      email: ['carlos@gmail.com', [Validators.required, Validators.minLength(5), Validators.maxLength(20), Validators.email]],
-      password: ['12345', [Validators.required, Validators.maxLength(15), Validators.minLength(4)]],
-      phone: ['32134567', [Validators.required]]
+      username: ['', [Validators.required]],
+      lastname: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20), Validators.email]],
+      password: ['', [Validators.required, Validators.maxLength(15), Validators.minLength(4)]],
+      phone: ['', [Validators.required]]
 
     });
   }
@@ -45,35 +45,43 @@ export class RegisterComponent implements OnInit {
   /* REGISTRO USUARIO */
   onRegister() {
 
+    /* Validacion inicial registro de formulario*/
     if (this.RValidation.valid && this.captchap != null) {
-      mensajeModalGenerico("carlos");
+      mensajeModalGenerico("Registrado correctamente");
       //mostrarMensajeDeError("carlos desde el alert");
       let c = new UserModel();
+
       c = {
+        rol:"2",
         username: this.rr.username.value,
         lastName: this.rr.lastname.value,
         email: this.rr.email.value,
         password: this.rr.password.value,
         cellphone: this.rr.phone.value
       }
+      
       this.secSevice.registerUser(c).subscribe(c => {
         this.router.navigate(['/security/login'])
       })
       console.log(this.captchap)
 
-    } else if(this.RValidation.valid && this.captchap === null) {
-      mostrarMensajeDeError("olvido validar el captchap");
+    } else if (this.RValidation.valid && this.captchap === null) {
+      mostrarMensajeDeError("You forgot captchap validation ");
+    }
+    else if (this.RValidation.invalid && this.captchap != null) {
+      mostrarMensajeDeError("the data is invalid");
+
     }
   }
 
   /* RECAPTCHA VARIABLE Y FUNCION */
   captchap: string = null;
-    
+
   resolved(captchaResponse: string) {
     this.captchap = captchaResponse
   }
 
-  
+
 
 
 }

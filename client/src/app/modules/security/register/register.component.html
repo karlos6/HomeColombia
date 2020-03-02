@@ -1,78 +1,76 @@
 <br>
 <div class="container section ">
-    <div class="row ">
-        <form [formGroup]="RValidation" (ngSubmit)="onRegister()" class="col s12">
-            <br>
-            <div class="card-panel">
-                <h5 class="center-align">Register</h5>
-                <br>
+  <div class="row ">
+    <form [formGroup]="RValidation" (ngSubmit)="onRegister()" class="col s12">
+      <br>
+      <div class="card-panel">
+        <h5 class="center-align">Register</h5>
+        <br>
 
-                <div class="row">
+        <div class="row">
 
-                    <!-- username -->
-                    <div class="input-field col s6">
-                        <input id="first_name" formControlName="username" type="text" class="validate">
-                        <label for="first_name">Username</label>
-                    </div>
+          <!-- username -->
+          <div class="input-field col s6">
+            <input id="first_name" formControlName="username" type="text" class="validate">
+            <label for="first_name">Username</label>
+          </div>
 
-                    <!-- last name-->
-                    <div class="input-field col s6">
-                        <input id="secondName" formControlName="lastname" type="text" class="validate">
-                        <label for="secondName">Last Name</label>
-                    </div>
-                </div>
+          <!-- last name-->
+          <div class="input-field col s6">
+            <input id="secondName" formControlName="lastname" type="text" class="validate">
+            <label for="secondName">Last Name</label>
+          </div>
+        </div>
 
-                <!-- PHONE-->
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="phone" formControlName="phone" type="text" class="validate">
-                        <label for="phone">Phone</label>
-                    </div>
-                </div>
+        <!-- PHONE-->
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="phone" formControlName="phone" type="text" class="validate">
+            <label for="phone">Phone</label>
+          </div>
+        </div>
 
-                <!--Email y password-->
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="email" formControlName="email" type="email" class="validate">
-                        <label for="email">Email</label>
+        <!--Email y password-->
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="email" formControlName="email" type="email" class="validate">
+            <label for="email">Email</label>
 
-                        <!-- validaciones username -->
-                        <div *ngIf="rr.email.errors && (rr.email.dirty || rr.email.touched)" class="warning-validation">
-                            <!-- tipos de errores -->
-                            <strong *ngIf="rr.email.errors.required">email is required!</strong>
-                            <strong *ngIf="rr.email.errors.minlength"> email must be at least 5 char!</strong>
-                            <strong *ngIf="rr.email.errors.maxlength"> email must be up to 20 char!</strong>
-                            <strong *ngIf="rr.email.errors.email"> must be an email!</strong>
-                        </div>
-                    </div>
-
-                    <div class="input-field col s6">
-                        <input id="password" formControlName="password" type="password" class="validate">
-                        <label for="password">Password</label>
-
-                        <!-- validaciones password -->
-                        <div *ngIf="rr.password.errors && (rr.password.dirty || rr.password.touched)"
-                            class="warning-validation">
-                            <!-- tipos de errores -->
-                            <strong *ngIf="rr.password.errors.required">password is required!</strong>
-                            <strong *ngIf="rr.password.errors.minlength">password must be at least 4 char!</strong>
-                            <strong *ngIf="rr.password.errors.maxlength">password must be up to 15 char!</strong>
-                        </div>
-                    </div>
-
-                    <div>
-                        <button class="btn waves-effect waves-light" type="submit">Submit
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
-                </div>
+            <!-- validaciones username -->
+            <div *ngIf="rr.email.errors && (rr.email.dirty || rr.email.touched)" class="warning-validation">
+              <!-- tipos de errores -->
+              <strong *ngIf="rr.email.errors.required">email is required!</strong>
+              <strong *ngIf="rr.email.errors.minlength"> email must be at least 5 char!</strong>
+              <strong *ngIf="rr.email.errors.maxlength"> email must be up to 20 char!</strong>
+              <strong *ngIf="rr.email.errors.email"> must be an email!</strong>
             </div>
-            <div >
-                <re-captcha (resolved)="resolved($event)" siteKey="6LeStNkUAAAAAEfBEe3OVHKfrMDIjnDInQkyIHRf">
-                </re-captcha>
+          </div>
+
+          <div class="input-field col s6">
+            <input id="password" formControlName="password" type="password" class="validate">
+            <label for="password">Password</label>
+
+            <!-- validaciones password -->
+            <div *ngIf="rr.password.errors && (rr.password.dirty || rr.password.touched)" class="warning-validation">
+              <!-- tipos de errores -->
+              <strong *ngIf="rr.password.errors.required">password is required!</strong>
+              <strong *ngIf="rr.password.errors.minlength">password must be at least 4 char!</strong>
+              <strong *ngIf="rr.password.errors.maxlength">password must be up to 15 char!</strong>
             </div>
-        </form>
-    </div>
+          </div>
+
+          <div>
+            <button class="btn waves-effect waves-light" type="submit">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <re-captcha (resolved)="resolved($event)" siteKey="6LeStNkUAAAAAEfBEe3OVHKfrMDIjnDInQkyIHRf">
+        </re-captcha>
+      </div>
+    </form>
+  </div>
 </div>
 <br>
-

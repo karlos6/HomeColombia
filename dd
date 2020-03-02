@@ -1,0 +1,378 @@
+[33mcommit e6c15ccb28c2202fafe0f79a0c6cb6be79978063[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Thu Feb 27 07:55:56 2020 -0500
+
+    Carpeta files
+
+[33mcommit a0121fbbab088674a503436c5fc51d5178d2c458[m
+Merge: 8002bf2 c1f31f4
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Wed Feb 26 01:33:38 2020 -0500
+
+    Inmueble (corrección errores git)
+
+[33mcommit c1f31f4e89492064e90e7cc3913c591edfe21d71[m
+Merge: 92d0145 ef0c09d
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Wed Feb 26 01:10:17 2020 -0500
+
+    correccion error Modal(Generico) y creacion containers (loopback component storage) UploadFiles y union master con rama local con solucion de conflictos
+
+[33mcommit ef0c09d0a20763000a6f2cd0780696a0e8897e12[m[33m ([m[1;31morigin/carlos[m[33m)[m
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Wed Feb 26 00:54:24 2020 -0500
+
+    correccion error Modal(Generico) y creacion containers (loopback component storage) UploadFiles
+
+[33mcommit 8002bf2fb5eb54cb5f248ab1f7fd6abe7fcda5fd[m[33m ([m[1;31morigin/Fabian[m[33m, [m[1;32mFabian[m[33m)[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Wed Feb 26 00:43:57 2020 -0500
+
+    frontend inmueble
+
+[33mcommit 92d01455614bd90f4c8776314cb23f9dc9b4a01a[m
+Merge: dbdfa0f 8b82633
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Mon Feb 24 16:54:26 2020 -0500
+
+    modulo login-user
+
+[33mcommit 3161ec3538ce62c2ca9ca135e1b9dac02752d65d[m
+Merge: 8b82633 79f8dd9
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Mon Feb 24 16:53:04 2020 -0500
+
+    Merge branch 'fabian' of https://github.com/karlos6/HomeColombia
+
+[33mcommit 79f8dd979cf9ce05f3efd8d6b7a6ad57de78423a[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Mon Feb 24 16:47:40 2020 -0500
+
+    diseño inmueble
+
+[33mcommit dbdfa0f30cdebec639376f90ab4f2150b82d9d41[m
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Mon Feb 24 16:37:22 2020 -0500
+
+    union
+
+[33mcommit 8fcf79cc3c1dc11cd40e56494f96d5f3188d3500[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Mon Feb 24 16:26:39 2020 -0500
+
+    Diseño creación de inmueble
+
+[33mcommit 8b82633ad0243e5fc6c189d02e87f1722234e60b[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Mon Feb 24 11:56:43 2020 -0500
+
+    Creacion LoginUser e implementacion en el login
+
+[33mcommit fd9abadd94ac065247bc4e932f1d2fa3f88068bb[m
+Merge: 58d5946 91f2437
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Sun Feb 23 23:49:26 2020 -0500
+
+    fucion commits -creacion del registro e integracion loopback y repositorio remoto pull
+
+[33mcommit 58d5946da9b065bbe2a4b7e50e67134bcc2391cb[m
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Sun Feb 23 23:34:21 2020 -0500
+
+    registro de usuarios en loopback y control de errores
+
+[33mcommit 91f243719674648d2eb1b4c4bfefd9602149a3a1[m
+Merge: ad60e71 376f342
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Sun Feb 23 00:15:21 2020 -0500
+
+    Merge branch 'master' of https://github.com/karlos6/HomeColombia
+
+[33mcommit ad60e715844bdf2c7fe50da03387013071e96a5b[m
+Merge: 0baa778 b0e08f0
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Sun Feb 23 00:13:34 2020 -0500
+
+    CRUD CITY EDITOR Y CREATOR
+
+[33mcommit 376f3424cb943b64f895d516ad2ee57f5b119775[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Fri Feb 21 19:01:30 2020 -0500
+
+    Mensaje datos erroneos 2.0
+
+[33mcommit 0baa77828d8eb065c5153110f5d998a7c3b1bb0c[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Fri Feb 21 18:14:32 2020 -0500
+
+    CRUD CITY
+
+[33mcommit b0e08f0f814e7320df257e9888719c218fa3171c[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Fri Feb 21 17:43:51 2020 -0500
+
+    Interceptor login y mensaje de dato erroneos
+
+[33mcommit eaf7b58dc5370390cda9e03efc89b2e31acb577e[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Thu Feb 20 11:15:28 2020 -0500
+
+    Department Editor
+
+[33mcommit 09beeb7bf4178d4e0230734977223d1b1233f7d6[m
+Merge: be7ba65 f2f0a49
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Thu Feb 20 08:28:56 2020 -0500
+
+    modificacion creator-departmen
+
+[33mcommit be7ba65a6799b23114690b958a9667a3dc7c5141[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Thu Feb 20 08:22:18 2020 -0500
+
+    Implementacion del color 2.0
+
+[33mcommit 12ce499eb279472435fef50a46bcb45fd4a459fc[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Thu Feb 20 08:18:56 2020 -0500
+
+    Implementacion del color
+
+[33mcommit f2f0a495e05059d47c590715644f0d1afae78039[m
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Thu Feb 20 08:16:50 2020 -0500
+
+    models User y solucion validators register
+
+[33mcommit cb84e8ac66e067e3d57e2075dbc5ea12d3a4d658[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Thu Feb 20 08:11:26 2020 -0500
+
+    Modificacion navbar y creacion logo
+
+[33mcommit 115ce03384df08dbd24eb84f135cc5b46739ba8f[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Thu Feb 20 02:23:05 2020 -0500
+
+    Department Creator, Delete, List
+
+[33mcommit d653009f26f310b307216fd34fa1e2d7d06e0a09[m
+Merge: b292c6e 1ee92b4
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Wed Feb 19 07:45:42 2020 -0500
+
+    Merge branch 'master' of https://github.com/karlos6/HomeColombia
+
+[33mcommit b292c6e2077a91a0584b8618e31de903e165a12c[m
+Merge: 2d44089 706f705
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Wed Feb 19 07:41:24 2020 -0500
+
+    Servicio departamento
+
+[33mcommit 1ee92b43ed7d8859fe6ec333a71db541aba2c313[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Mon Feb 17 23:17:24 2020 -0500
+
+    Login y logout funcionando 100% y modificacion UserModel
+
+[33mcommit 706f70534b6654cf3ac16661e50d302f8996525d[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Mon Feb 17 21:40:52 2020 -0500
+
+    Servicio, listado y eliminado de departamentos
+
+[33mcommit 2d4408936786d7219ea8e96cd48f34afbf9fe86e[m
+Merge: 0ca4cc1 37cacf8
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Mon Feb 17 19:35:22 2020 -0500
+
+    Reparacion de errores al hacer el login
+
+[33mcommit 0ca4cc1e4022c5c06e786245f435d2ea0e47a899[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Mon Feb 17 19:09:02 2020 -0500
+
+    Allow en user
+
+[33mcommit 37cacf843c3b30de1651ec7e5921d05ed352d4c6[m
+Merge: 4e4f618 f6a5725
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Mon Feb 17 17:47:18 2020 -0500
+
+    Creacion del servicio de seguridad del login e implementacion del login
+
+[33mcommit 4e4f6185de2a74089dabbcab147c41f7cead84db[m
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Mon Feb 17 17:39:20 2020 -0500
+
+    Creacion del servicio de seguridad del login e implementacion del login
+
+[33mcommit f6a5725c5f6b1a5e349cf9e8484bdc45a20da37d[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Mon Feb 17 10:49:38 2020 -0500
+
+    Modificacion nav
+
+[33mcommit d72fc0ff31606ce4d10a42293083ba20c3f97f47[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Sat Feb 15 12:33:25 2020 -0500
+
+    Conexión con MongoDB Y Creación del modelo department
+
+[33mcommit eebc72331eb2b03e645c19b1634fc5f67ec0ff83[m
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Fri Feb 14 00:13:36 2020 -0500
+
+    Ajustes en las validaciones del formulario de login
+
+[33mcommit b09ed3257498ba4212fa2ef8f396dd770a88300d[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Wed Feb 12 09:08:14 2020 -0500
+
+    Configuracion de Rutar y Creacion de Inmueble
+
+[33mcommit a0ebb874a0bb4c61f7d4ee3938ff12dc346ebae7[m
+Merge: 9310595 f3df246
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Mon Feb 10 12:24:16 2020 -0500
+
+    creacion home y sus componentes :)
+
+[33mcommit 9310595f971b7a450944219af4a318f2978fdc6e[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Mon Feb 10 12:18:33 2020 -0500
+
+    crecion home y sus componentes (imagenes) :)
+
+[33mcommit f3df246876bf2f9dd6a86251e51d43c4ef20434a[m
+Merge: 943d41d e0c9676
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Sat Feb 8 22:01:46 2020 -0500
+
+    creacion de login y sus vaidaciones
+
+[33mcommit e0c96766f8866b305f4b193d486d6715d60a5638[m[33m ([m[1;31morigin/omicolta[m[33m)[m
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Sat Feb 8 21:58:16 2020 -0500
+
+    creacion de login y sus validaciones
+
+[33mcommit 943d41da3b2e1715d639e34de33ba07074501a7f[m
+Merge: 56c1915 9e911f6
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Sat Feb 8 21:47:58 2020 -0500
+
+    creacion de login y sus validaciones
+
+[33mcommit 56c19156bdd19f3937b7b354a827f6cf451f7472[m
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Sat Feb 8 21:29:54 2020 -0500
+
+    actualizacion de datos
+
+[33mcommit 6a2b98d020235c627c164bfb9056a478ec10c720[m
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Sat Feb 8 21:24:37 2020 -0500
+
+    union de ramas
+
+[33mcommit 5177fc20033b8e8edb927645a727f9b1e4683e19[m
+Merge: e777d8c a4c9b49
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Sat Feb 8 21:13:53 2020 -0500
+
+    Ajustes al formulario de login
+
+[33mcommit 9e911f649a2f01c4dda93ea1e699379e171fefc3[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Sat Feb 8 20:53:08 2020 -0500
+
+    Rutas Departamento y Ciudad en el navbar
+
+[33mcommit f96370002cf4984e2e1bba61cd142f9710df300e[m
+Merge: a4c9b49 349d501
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Sat Feb 8 19:12:49 2020 -0500
+
+    Merge branch 'Fabian' of https://github.com/karlos6/HomeColombia
+
+[33mcommit 349d501ec01f435cd6b0a1fb5b8c1f202ab9c1d7[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Sat Feb 8 17:48:22 2020 -0500
+
+    creacion del crud de ciudad
+
+[33mcommit a4c9b49266dbc8b7e51a1c45b857f3686150c381[m
+Merge: 84170e1 1955ea3
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Sat Feb 8 17:01:30 2020 -0500
+
+    Merge branch 'master' of https://github.com/karlos6/HomeColombia
+
+[33mcommit e777d8c4befbb4f0d5b4855fa8b061bdef767f57[m
+Merge: b9ed127 1955ea3
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Sat Feb 8 16:04:28 2020 -0500
+
+    creacion de componentes login y logout, y validaciones del formulario de login
+
+[33mcommit 84170e1982c13708d75461850f1c396470458263[m[33m ([m[1;31morigin/Ricardo[m[33m)[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Fri Feb 7 08:06:23 2020 -0500
+
+    Carrusel automatico, enlace con Jquery
+
+[33mcommit dde1e0b44302a16f187a96a06ec7879052a5aa3f[m
+Author: FabianPalacios <oswaldo.1701813120@ucaldas.edu.co>
+Date:   Thu Feb 6 21:56:01 2020 -0500
+
+    Creación de Departamento, editor,creator y list
+
+[33mcommit 1955ea33c3c9aa4868b349c93ac4f73475fd21b7[m
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Wed Feb 5 21:54:21 2020 -0500
+
+    creacion validaciones register html y ts
+
+[33mcommit 50391da3a12f4b20ba2bcb8f31b127feb6561e2d[m
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Wed Feb 5 21:43:33 2020 -0500
+
+    creacion de validacion typescript
+
+[33mcommit b9ed12784f98ba971552602aff0df38895c09d39[m
+Author: OMicolta <oivar.1701818060@ucaldas.edu.co>
+Date:   Wed Feb 5 20:47:20 2020 -0500
+
+    commit de prueba
+
+[33mcommit 569645133565fe847ecbbad7622dcf97549228b7[m
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Wed Feb 5 18:18:27 2020 -0500
+
+    creacion c. page-not-found, m. security y c. register e implementacion html y css
+
+[33mcommit 4ebbb730ab2d95857f8a7108b7fc83664ada20a4[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Wed Feb 5 10:05:33 2020 -0500
+
+    Inserccion de logos y algunas caracteristicas de diseño
+
+[33mcommit 27e52515a737b48c93afbfed95f5575f856e6bb8[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Tue Feb 4 23:54:35 2020 -0500
+
+    Creacion Nav y Footer
+
+[33mcommit 918f2c3a8718d7b30f7652043e4d6c225bd49613[m
+Author: Ricardo1192 <ricardo.1701810348@ucaldas.edu.co>
+Date:   Mon Feb 3 19:47:38 2020 -0500
+
+    Prueba
+
+[33mcommit 1175fcd2098fb1336dd0d4cecde19afd3ff64913[m
+Author: karlos6 <Carlos.Keller.M@gmail.com>
+Date:   Mon Feb 3 19:08:05 2020 -0500
+
+    creacion Frontend & Backend

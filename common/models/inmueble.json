@@ -1,0 +1,82 @@
+{
+  "name": "inmueble",
+  "plural": "inmuebles",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "TipoOferta": {
+      "type": "string",
+      "required": true
+    },
+    "TipoInmueble": {
+      "type": "string",
+      "required": true
+    },
+    "departmentId": {
+      "type": "string",
+      "required": true
+    },
+    "departmentName": {
+      "type": "string",
+      "required": true
+    },
+    "cityId": {
+      "type": "string",
+      "required": true
+    },
+    "cityName": {
+      "type": "string",
+      "required": true
+    },
+    "Barrio": {
+      "type": "string",
+      "required": true
+    },
+    "Direccion": {
+      "type": "string",
+      "required": true
+    },
+    "Precio": {
+      "type": "string",
+      "required": true
+    },
+    "Estrato": {
+      "type": "string",
+      "required": true
+    },
+    "Area": {
+      "type": "string",
+      "required": true
+    },
+    "NumeroHabitaciones": {
+      "type": "string",
+      "required": true
+    },
+    "NumeroBanos": {
+      "type": "string",
+      "required": true
+    },
+    "EstadoInmueble": {
+      "type": "string",
+      "required": true
+    },
+    "Descripcion": {
+      "type": "string",
+      "required": true
+    },
+    "Imagen": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

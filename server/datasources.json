@@ -13,7 +13,7 @@
   "UploadFiles": {
     "name": "UploadFiles",
     "connector": "loopback-component-storage",
-    "provider": "fileSystem",
+    "provider": "filesystem",
     "root": "./server/files"
   }
 }
