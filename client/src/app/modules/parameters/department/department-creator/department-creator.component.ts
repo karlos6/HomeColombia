@@ -41,14 +41,17 @@ export class DepartmentCreatorComponent implements OnInit {
     this.deptService.existdepartmentName(name).subscribe((departments: DepartmentModel) => {
       if(this.fv.name.value ==  departments.name){
         console.log("ya existe ese departamento")
+      }else{
+        console.log("hola")
+        let c : DepartmentModel = {
+          code: this.fv.code.value,
+          name: this.fv.name.value
+        }
+        console.log(c)
       }
     })   
 
-    let c : DepartmentModel = {
-      code: this.fv.code.value,
-      name: this.fv.name.value
-    }
-    console.log(c)
+    
 
     //this.deptService.saveDepartment(c).subscribe();
     //this.router.navigate(['/department/list'])

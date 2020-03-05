@@ -1,11 +1,13 @@
 <br />
+<div class="container">
 <a routerLink="/inmueble/creator" class="waves-effect waves-light btn">New Register</a>
 <br />
 <br />
+</div>
 
-<table class="responsive-table">
+<table class="responsive-table container">
     <thead>
-        <tr>
+        <tr >
             <th>
                 Tipo de Oferta
             </th>
@@ -19,6 +21,9 @@
                 Ciudad
             </th>
             <th>
+                Barrio 
+            </th>
+            <th>
                 Dirección 
             </th>
             <th>
@@ -30,21 +35,72 @@
             <th>
                 Area 
             </th>
-
-            
-
+            <th>
+                Número Habitaciones 
+            </th>
+            <th>
+                Número Baños
+            </th>
+            <th>
+                Estado del Inmueble
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Imagen
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let c of inmuebles | paginate: { itemsPerPage: 8, currentPage: p }">
             <td>
-                {{c.Area}}
+                {{c.TipoOferta}}
+            </td>
+            <td>
+                {{c.TipoInmueble}}
+            </td>
+            <td>
+                {{c.departmentName}}
+            </td>
+            <td>
+                {{c.cityName}}
+            </td>
+            <td>
+                {{c.Barrio}}
+            </td>
+            <td>
+                {{c.Direccion}}
+            </td>
+            <td>
+                {{c.Precio}}
             </td>
             <td>
                 {{c.Estrato}}
             </td>
             <td>
-                {{c.departmentName}}
+                {{c.Area}}
+            </td>
+            <td>
+                {{c.NumeroHabitaciones}}
+            </td>
+            <td>
+                {{c.NumeroBanos}}
+            </td>
+            <td>
+                {{c.EstadoInmueble}}
+            </td>
+            <td>
+                {{c.Descripcion}}
+            </td>
+            <td>
+                <a><img src="http://localhost:3000/api/containers/images/download/LOGO.1.png"></a>
             </td>
             <td>
                 <a routerLink="/inmueble/editor/{{c.id}}" class="waves-effect waves-light btn orange">Edit
@@ -60,6 +116,7 @@
         </tr>
     </tbody>
 </table>
+
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 <div id="modalConfirmation" class="modal">

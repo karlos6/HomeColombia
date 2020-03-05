@@ -33,6 +33,14 @@ export class InmuebleService {
       })
   }
 
+  //METODO OBTENER NOMBRE DE LAS IMAGENES
+  getImagenByName(name: string) {
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/containers/images/files/${name}?access_token=${token}`
+    return this.http.get(url_api);
+  }
+  
+
 
   saveInmueble(inmueble: InmuebleModel) {
     let token = this.secService.getToken();
@@ -47,6 +55,19 @@ export class InmuebleService {
     
   }
 
+  getInmuebleById(id: string) {
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/inmuebles/${id}?access_token=${token}`
+    return this.inmueble = this.http.get(url_api);
+  }
+
+  updateInmueble(inmueble){
+    const inmuebleId =  inmueble.id;
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/inmueble/${inmuebleId}/?access_token=${token}`
+    return this.http.put<InmuebleModel>(url_api, inmueble, {headers : this.headers})
+    .pipe(map(data => data));
+  }
 
 
 }

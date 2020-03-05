@@ -21,7 +21,6 @@ export class InmuebleListComponent implements OnInit {
   getListInmueble(){
     this.secInmueble.getAllInmueble()
     .subscribe((inmuebles : InmuebleModel) => (this.inmuebles = inmuebles));
-    
-  }
+   }
 
 }
