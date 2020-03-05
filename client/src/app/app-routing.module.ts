@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './public/page-not-found/page-not-found.co
 import { HomeComponent } from './public/home/home.component';
 
 
+
 const routes: Routes = [
 
   {
@@ -22,15 +23,18 @@ const routes: Routes = [
   },
   {
     path: 'department',
-    loadChildren: './modules/parameters/department/department.module#DepartmentModule'    
+    loadChildren: './modules/parameters/department/department.module#DepartmentModule',
+     
   },
   {
     path: 'city',
-    loadChildren: './modules/parameters/city/city.module#CityModule'    
+    loadChildren: './modules/parameters/city/city.module#CityModule',
+      
   },
   {
     path: 'inmueble',
-    loadChildren: './modules/administrator/inmueble/inmueble.module#InmuebleModule'    
+    loadChildren: './modules/administrator/inmueble/inmueble.module#InmuebleModule',
+    
   },
   {
     path: '**',

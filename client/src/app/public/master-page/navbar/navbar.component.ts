@@ -9,38 +9,40 @@ import { LoginUserModel } from 'src/app/models/loginUser.model';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  
-  userInfo:LoginUserModel ;
+
+  userInfo: LoginUserModel;
   userLogged: boolean = false;
   userName: String;
-  rol:String;
+  rol: String;
 
   subscription: Subscription
 
   constructor(private secService: SecurityService) { }
 
   ngOnInit() {
-   
-      this.verifyUserSession();
-    
-    
+
+    this.verifyUserSession();
+
+
   }
 
-  verifyUserSession(){
-    this.subscription = this.secService.getUserInfo().subscribe(user =>{
+  verifyUserSession() {
+    this.subscription = this.secService.getUserInfo().subscribe(user => {
       this.userInfo = user;
       this.updateInfo();
     });
   }
 
-  updateInfo(){
-     
-    this.userLogged = this.userInfo.isLogged;
-    this.rol=this.userInfo.user.rol;
-    if (this.userLogged) {
-      this.userName=`${this.userInfo.user.username}`;
+  updateInfo() {
+    console.log("Hola, me acabo de loguear");
+    if (this.userInfo.user != undefined && this.userInfo.user != null) {
+      this.rol = this.userInfo.user.rol;
     }
-    
+    this.userLogged = this.userInfo.isLogged;
+    if (this.userLogged) {
+      this.userName = `${this.userInfo.user.username}`;
+    }
+
   }
 
 }

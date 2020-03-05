@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { GlobalHttpRequestInterceptorServiceService } from 'src/app/services/global-http-request-interceptor-service.service';
+import { AdminCreatorComponent } from './modules/administrator/admin-creator/admin-creator.component';
 
 
 @NgModule({
@@ -21,7 +22,9 @@ import { GlobalHttpRequestInterceptorServiceService } from 'src/app/services/glo
     HeroComponent,
     FooterComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    AdminCreatorComponent,
+    
   ],
   imports: [
     BrowserModule,
