@@ -1,25 +1,47 @@
 <br />
+<div class="container row" [formGroup]="frmValidator">
+  <h5 class="aviso center">FILTRAR</h5>
+
+  <div class="input-field col s6">
+    <select class="browser-default" formControlName="TipoOferta" (change)="getListOfertaxInmueble()">
+      <option value="">TIPO DE OFERTA</option>
+      <option value="VENTA">VENTA</option>
+      <option value="ARRIENDO">ARRIENDO</option>
+    </select>
+  </div>
+
+  <div class="input-field col s6">
+    <select class="browser-default" formControlName="TipoInmueble" (change)="getListTipoInmueble()">
+      <option value="">TIPO DE INMUEBLE</option>
+      <option value="APARTAMENTO">APARTAMENTO</option>
+      <option value="CASA">CASA</option>
+      <option value="APARTAESTUDIO">APARTAESTUDIO</option>
+      <option value="OFICINA">OFICINA</option>
+      <option value="HABITACION">HABITACION</option>
+      <option value="APARTAESTUDIO">APARTAESTUDIO</option>
+      <option value="CASALOTE">CASA LOTE</option>
+    </select>
+  </div>
+
+</div>
 <br />
 <div class="row">
-  <div style="float: left; margin-right: 3%;margin-left: 70px;" class="card col s3 " *ngFor="let c of inmuebles | paginate: { itemsPerPage: 8, currentPage: p }">
-      <div class="card-image">
-          <img src="http://localhost:3000/api/containers/imagen/download/{{c.Imagen}}" width="100" height="300">
-          <span class="card-title">{{c.TipoOferta}} - {{c.TipoInmueble}}</span>
-      </div>
-      <div class="card-content">
-          <span>{{c.departmentName}} - {{c.cityName}} </span><br>
-          <span>Barrio: {{c.Barrio}} - Direccion : {{c.Direccion}}</span><br>
-          <span>Precio : {{c.Precio}} - Estrato : {{c.Estrato}}</span><br>
-          <span>Area: {{c.Area}} - Numero de Habitaciones : {{c.NumeroHabitaciones}}</span><br>
-          <span>Numero Baños : {{c.NumeroBanos}} - Estado : {{c.EstadoInmueble}}</span><br>
-          <p> {{c.Descripcion}}</p>
-      </div>
-      <div class="card-action">
-          <a (click)="openConfirmation(c.id)" class="right">DELETE</a>&nbsp;
-          <a routerLink="/inmueble/editor/{{c.id}}" class="right">EDIT</a>
-      </div>
+  <div style="float: left; margin-right: 3%;margin-left: 70px;" class="card col s3 "
+    *ngFor="let c of inmuebles | paginate: { itemsPerPage: 8, currentPage: p }">
+    <div class="card-image">
+      <img src="http://localhost:3000/api/containers/imagen/download/{{c.Imagen}}" width="100" height="300">
+      <span class="card-title">{{c.TipoOferta}} - {{c.TipoInmueble}}</span>
+      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+    </div>
+    <div class="card-content">
+      <span>{{c.departmentName}} - {{c.cityName}} </span><br>
+      <span>Barrio:{{c.Barrio}} - Direccion:{{c.Direccion}}</span><br>
+      <span>Precio : {{c.Precio}} - Estrato : {{c.Estrato}}</span><br>
+      <span>Area: {{c.Area}} - Numero de Habitaciones : {{c.NumeroHabitaciones}}</span><br>
+      <span>Numero Baños: {{c.NumeroBanos}} - Estado: {{c.EstadoInmueble}}</span><br>
+      <p> {{c.Descripcion}}</p>
+    </div>
   </div> &nbsp;
 </div>
 
-<pagination-controls  class="center" (pageChange)="p = $event"></pagination-controls>
-  
+<pagination-controls class="center" (pageChange)="p = $event"></pagination-controls>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { InmuebleService } from 'src/app/services/inmueble.service';
 import { InmuebleModel } from 'src/app/models/inmueble.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+declare var initMaterializeSelect: any;
 
 @Component({
   selector: 'app-home',
@@ -9,18 +12,51 @@ import { InmuebleModel } from 'src/app/models/inmueble.model';
 })
 export class HomeComponent implements OnInit {
 
-  p: number = 1;
-  constructor(private secInmueble: InmuebleService) { }
+ 
+  frmValidator: FormGroup;
+
+  constructor(private fb: FormBuilder,
+    private secInmueble: InmuebleService) { }
 
   private inmuebles: InmuebleModel
 
   ngOnInit() {
-    this.getListInmueble()
+    this.formGenerator();  
+    this.getListTipoInmueble();
   }
+  
+  ngAfterViewInit() {
+    initMaterializeSelect()
+    this.getListInmueble();
+  }
+
+  get fv() {
+    return this.frmValidator.controls;
+  }
+
+  formGenerator() {
+    this.frmValidator = this.fb.group({
+      TipoOferta: ['', [Validators.required]],
+      TipoInmueble : ['', [Validators.required]]
+    });
+  }
+
 
   getListInmueble() {
     this.secInmueble.getAllInmueble()
       .subscribe((inmuebles: InmuebleModel) => (this.inmuebles = inmuebles));
   }
+
+  getListOfertaxInmueble() {
+    let oferta= this.fv.TipoOferta.value;
+    this.secInmueble.getOfertaxInmueble(oferta)
+    .subscribe((inmuebles : InmuebleModel) => (this.inmuebles = inmuebles))
+  }
+  getListTipoInmueble() {
+    let tipo= this.fv.TipoInmueble.value;
+    this.secInmueble.getTipoInmueble(tipo)
+    .subscribe((inmuebles : InmuebleModel) => (this.inmuebles = inmuebles))
+  }
+
 
 }

@@ -15,6 +15,7 @@ import { GlobalHttpRequestInterceptorServiceService } from 'src/app/services/glo
 import { ContactComponent } from './public/contact/contact.component';
 import {NgxPaginationModule}  from 'ngx-pagination';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import {NgxPaginationModule}  from 'ngx-pagination';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
