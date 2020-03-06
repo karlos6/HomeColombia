@@ -54,7 +54,11 @@
               </button>
         </div>
         </div>
-        <div class="row">
+        <div class="row">  
+        <div>
+            <re-captcha (resolved)="resolved($event)" siteKey="6LeStNkUAAAAAEfBEe3OVHKfrMDIjnDInQkyIHRf">
+            </re-captcha>
+          </div>
         <div class="input-field col s6 m6 l6">
             <p class="margin medium-small"><a routerLink="/security/register">Register Now!</a></p>
         </div>
@@ -62,7 +66,6 @@
             <p class="margin right-align medium-small"><a href="#">Forgot password?</a></p>
         </div>          
         </div>
-
     </form>
     </div>
 </div> 

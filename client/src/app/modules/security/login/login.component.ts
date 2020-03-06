@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
-
+declare let mostrarMensajeDeError: any;
 
 @Component({
   selector: 'app-login',
@@ -37,8 +37,10 @@ export class LoginComponent implements OnInit {
   loginEvent() {
     
     if (this.fgValidation.invalid) {
-      alert("Invalid datA.");
-    } else {
+      mostrarMensajeDeError("Invalid datA.");
+    }else if(this.captchap === null){
+      mostrarMensajeDeError("You forgot captchap validation");
+    }else{
       let u = this.fg.username.value;
       let p = this.fg.password.value;
 
@@ -65,6 +67,12 @@ export class LoginComponent implements OnInit {
 
   get fg() {
     return this.fgValidation.controls;
+  }
+  
+  captchap: string = null;
+
+  resolved(captchaResponse: string) {
+    this.captchap = captchaResponse
   }
 
 

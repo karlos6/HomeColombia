@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { GlobalHttpRequestInterceptorServiceService } from 'src/app/services/global-http-request-interceptor-service.service';
-import { AdminCreatorComponent } from './modules/administrator/admin-creator/admin-creator.component';
+
 
 
 @NgModule({
@@ -22,8 +22,7 @@ import { AdminCreatorComponent } from './modules/administrator/admin-creator/adm
     HeroComponent,
     FooterComponent,
     PageNotFoundComponent,
-    HomeComponent,
-    AdminCreatorComponent,
+    HomeComponent
     
   ],
   imports: [
