@@ -1,0 +1,10 @@
+table{
+    table-layout: fixed;
+    width: 250px;
+}
+
+card {
+    /* border: 1px solid blue;*/
+    width: 400px;
+    word-wrap: break-word;
+}

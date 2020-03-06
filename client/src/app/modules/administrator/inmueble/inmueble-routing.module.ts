@@ -11,7 +11,7 @@ const routes: Routes = [
     component: InmuebleCreatorComponent
   },
   {
-    path: 'editor',
+    path: 'editor/:id',
     component: InmuebleEditorComponent
   },
   {

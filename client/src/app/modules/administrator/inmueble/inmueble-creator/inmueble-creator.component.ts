@@ -36,7 +36,6 @@ export class InmuebleCreatorComponent implements OnInit {
     this.formGenerator();
     this.getListDepartment();
     this.getListCityxDepartment();
-
   }
 
   ngAfterViewInit() {
@@ -138,6 +137,9 @@ export class InmuebleCreatorComponent implements OnInit {
 
     })
   }
+
+
+  
 
 
 }

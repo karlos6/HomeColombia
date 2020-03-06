@@ -1,123 +1,35 @@
+
+<div>
 <br />
-<div class="container">
-<a routerLink="/inmueble/creator" class="waves-effect waves-light btn">New Register</a>
+<a routerLink="/inmueble/creator" style="margin-left: 85%;" class="waves-effect waves-light btn">New Register</a>
 <br />
 <br />
+
+<div class="row">
+    <div style="float: left; margin-right: 3%;margin-left: 70px;" class="card col s3 " *ngFor="let c of inmuebles | paginate: { itemsPerPage: 8, currentPage: p }">
+        <div class="card-image">
+            <img src="http://localhost:3000/api/containers/imagen/download/{{c.Imagen}}" width="100" height="300">
+            <span class="card-title">{{c.TipoOferta}} - {{c.TipoInmueble}}</span>
+        </div>
+        <div class="card-content">
+            <span>{{c.departmentName}} - {{c.cityName}} </span><br>
+            <span>Barrio: {{c.Barrio}} - Direccion : {{c.Direccion}}</span><br>
+            <span>Precio : {{c.Precio}} - Estrato : {{c.Estrato}}</span><br>
+            <span>Area: {{c.Area}} - Numero de Habitaciones : {{c.NumeroHabitaciones}}</span><br>
+            <span>Numero Baños : {{c.NumeroBanos}} - Estado : {{c.EstadoInmueble}}</span><br>
+            <p> {{c.Descripcion}}</p>
+        </div>
+        <div class="card-action">
+            <a (click)="openConfirmation(c.id)" class="right">DELETE</a>&nbsp;
+            <a routerLink="/inmueble/editor/{{c.id}}" class="right">EDIT</a>
+
+        </div>
+    </div> &nbsp;
 </div>
 
-<table class="responsive-table container">
-    <thead>
-        <tr >
-            <th>
-                Tipo de Oferta
-            </th>
-            <th>
-                Tipo de inmuble
-            </th>
-            <th>
-                Departamento
-            </th>
-            <th>
-                Ciudad
-            </th>
-            <th>
-                Barrio 
-            </th>
-            <th>
-                Dirección 
-            </th>
-            <th>
-                Precio 
-            </th>
-            <th>
-                Estrato 
-            </th>
-            <th>
-                Area 
-            </th>
-            <th>
-                Número Habitaciones 
-            </th>
-            <th>
-                Número Baños
-            </th>
-            <th>
-                Estado del Inmueble
-            </th>
-            <th>
-                Descripción
-            </th>
-            <th>
-                Imagen
-            </th>
-            <th>
-                Edit
-            </th>
-            <th>
-                Delete
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let c of inmuebles | paginate: { itemsPerPage: 8, currentPage: p }">
-            <td>
-                {{c.TipoOferta}}
-            </td>
-            <td>
-                {{c.TipoInmueble}}
-            </td>
-            <td>
-                {{c.departmentName}}
-            </td>
-            <td>
-                {{c.cityName}}
-            </td>
-            <td>
-                {{c.Barrio}}
-            </td>
-            <td>
-                {{c.Direccion}}
-            </td>
-            <td>
-                {{c.Precio}}
-            </td>
-            <td>
-                {{c.Estrato}}
-            </td>
-            <td>
-                {{c.Area}}
-            </td>
-            <td>
-                {{c.NumeroHabitaciones}}
-            </td>
-            <td>
-                {{c.NumeroBanos}}
-            </td>
-            <td>
-                {{c.EstadoInmueble}}
-            </td>
-            <td>
-                {{c.Descripcion}}
-            </td>
-            <td>
-                <a><img src="http://localhost:3000/api/containers/images/download/LOGO.1.png"></a>
-            </td>
-            <td>
-                <a routerLink="/inmueble/editor/{{c.id}}" class="waves-effect waves-light btn orange">Edit
-                    <i class="material-icons right">edit</i>
-                </a>
-            </td>
-            <td>
-                <button class="btn waves-effect waves-light red" type="button" name="action"
-                    (click)="openConfirmation(c.id)">Delete
-                    <i class="material-icons right">delete</i>
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
 
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<pagination-controls  class="center" (pageChange)="p = $event"></pagination-controls>
 
 <div id="modalConfirmation" class="modal">
     <div class="modal-content">
@@ -127,6 +39,5 @@
     <div class="modal-footer">
         <a class="modal-close waves-effect waves-green btn red">Cancel</a> &nbsp;
         <a class="modal-close waves-effect waves-green btn green" (click)="DeleteCity()">Confirm</a>
-
     </div>
 </div>
