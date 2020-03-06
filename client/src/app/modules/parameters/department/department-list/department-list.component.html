@@ -1,11 +1,11 @@
 <br />
 <br />
-<a routerLink="/department/creator" class="waves-effect waves-light btn">New Register</a>
+<a  style=" margin-left: 75%;" routerLink="/department/creator" class="waves-effect waves-light btn">New Register</a>
 <br />
 <br />
 
 
-<table class="responsive-table">
+<table style=" margin-left: 20%;" class="responsive-table container">
     <thead>
         <tr>
             <th scope="col">
@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let dept of departments | paginate: { itemsPerPage: 3, currentPage: p}">
+        <tr *ngFor="let dept of departments | paginate: { itemsPerPage: 8, currentPage: p}">
             <td>
                 {{dept.code}}
             </td>
@@ -44,7 +44,7 @@
         </tr>
     </tbody>
 </table>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls class="center" (pageChange)="p = $event" ></pagination-controls>
 
 <div id="modalConfirmation" class="modal">
     <div class="modal-content">

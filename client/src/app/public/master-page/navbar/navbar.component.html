@@ -8,10 +8,12 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a class="dropdown-trigger" *ngIf="userLogged" href="#!" data-target="dropdown1">{{userName}}
-        <i *ngIf="userLogged"class="material-icons right">account_circle</i></a></li>
-      <li *ngIf="!userLogged"><a routerLink="/security/login"><h5>Login</h5></a></li>
+      <i *ngIf="userLogged"class="material-icons right">account_circle</i></a></li>
+      <li *ngIf="!userLogged "><a routerLink="/contact"><h5>Contáctanos</h5></a></li>
+      <li *ngIf="!userLogged "><a routerLink="/security/login"><h5>Login</h5></a></li>  
       <li *ngIf="userLogged"><a routerLink="/security/logout">Logout</a></li>
-      <li *ngIf="userLogged"><a routerLink="/department/list">Department</a></li>
+      <li *ngIf="userLogged"><a routerLink="/administrator/creator">Admin</a></li>
+      <li *ngIf="userLogged " ><a routerLink="/department/list">Departamento</a></li>
       <li *ngIf="userLogged"><a routerLink="/city/list">Ciudad</a></li>
       <li *ngIf="userLogged"><a routerLink="/inmueble/list">Inmueble</a></li>
     </ul>

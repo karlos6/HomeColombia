@@ -7,6 +7,7 @@ import { DepartmentModel } from 'src/app/models/department.model';
 import { CityModel } from 'src/app/models/city.model';
 import { InmuebleService } from 'src/app/services/inmueble.service';
 import { HttpClient } from '@angular/common/http';
+import { InmuebleModel } from 'src/app/models/inmueble.model';
 
 
 declare var initMaterializeSelect: any;
@@ -26,17 +27,15 @@ export class InmuebleCreatorComponent implements OnInit {
     private router: Router,
     private deptService: DepartmentService,
     private cityService: CityService,
-    private secInmueble: InmuebleService,
-    private http: HttpClient) { }
+    private secInmueble: InmuebleService) { }
 
   private departments: DepartmentModel;
-  private cities: DepartmentModel;
+  private cities: CityModel;
 
   ngOnInit() {
     this.formGenerator();
     this.getListDepartment();
     this.getListCityxDepartment();
-
   }
 
   ngAfterViewInit() {
@@ -55,14 +54,13 @@ export class InmuebleCreatorComponent implements OnInit {
       departmentName: ['', [Validators.required]],
       cityId: ['', [Validators.required]],
       cityName: ['', [Validators.required]],
-
       Barrio: ['', [Validators.required]],
       Direccion: ['', [Validators.required]],
       Precio: ['', [Validators.required]],
       Estrato: ['', [Validators.required]],
       Area: ['', [Validators.required]],
       NumeroHabitaciones: ['', [Validators.required]],
-      NumeroBaños: ['', [Validators.required]],
+      NumeroBanos: ['', [Validators.required]],
       EstadoInmueble: ['', [Validators.required]],
       Descripcion: ['', [Validators.required]],
       Imagen: ['', [Validators.required]],
@@ -76,11 +74,11 @@ export class InmuebleCreatorComponent implements OnInit {
       .subscribe((departments: DepartmentModel) => (this.departments = departments));
   }
 
-  getListCityxDepartment(){
-  let dept = this.fv.departmentId.value;
-   this.cityService.getCitesxDepartment(dept)
-   .subscribe((cities: CityModel) => (this.cities = cities))
-  
+  getListCityxDepartment() {
+    let dept = this.fv.departmentId.value;
+    this.cityService.getCitesxDepartment(dept)
+      .subscribe((cities: CityModel) => (this.cities = cities))
+
   }
 
 
@@ -93,12 +91,55 @@ export class InmuebleCreatorComponent implements OnInit {
 
     let formData = new FormData();
     for (var i = 0; i < this.uploadedFiles.length; i++) {
-        formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
+      formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
+      console.log(this.uploadedFiles[i].name)
     }
-    
     this.secInmueble.loadImagen(formData);
 
   }
+
+  //OBTENER NOMBRE DE LAS IMAGENES SELECCIONADAS
+  nameImagen() {
+    let formData = {};
+    for (var i = 0; i < this.uploadedFiles.length; i++) {
+      formData = (this.uploadedFiles[i].name)
+    }
+    return formData
+  }
+
+
+
+  //GUADAR INMUEBLES
+  SaveInmueble() {
+    this.cityService.getCityById(this.fv.cityId.value).subscribe((cities: CityModel) => {
+      this.upload()
+      let c: InmuebleModel = {
+        TipoOferta: this.fv.TipoOferta.value,
+        TipoInmueble: this.fv.TipoInmueble.value,
+        departmentId: this.fv.departmentId.value,
+        departmentName: cities.departmentName,
+        cityId: this.fv.cityId.value,
+        cityName: cities.name,
+        Barrio: this.fv.Barrio.value,
+        Direccion: this.fv.Direccion.value,
+        Precio: this.fv.Precio.value,
+        Estrato: this.fv.Estrato.value,
+        Area: this.fv.Area.value,
+        NumeroHabitaciones: this.fv.NumeroHabitaciones.value,
+        NumeroBanos : this.fv.NumeroBanos.value,
+        EstadoInmueble: this.fv.EstadoInmueble.value,
+        Descripcion: this.fv.Descripcion.value,
+        Imagen : this.nameImagen()
+      }
+      console.log(c)
+      this.secInmueble.saveInmueble(c).subscribe();
+      this.router.navigate(['/inmueble/list'])
+
+    })
+  }
+
+
+  
 
 
 }

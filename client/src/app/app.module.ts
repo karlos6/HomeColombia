@@ -12,7 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { GlobalHttpRequestInterceptorServiceService } from 'src/app/services/global-http-request-interceptor-service.service';
+import { ContactComponent } from './public/contact/contact.component';
+import {NgxPaginationModule}  from 'ngx-pagination';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,17 @@ import { GlobalHttpRequestInterceptorServiceService } from 'src/app/services/glo
     HeroComponent,
     FooterComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
