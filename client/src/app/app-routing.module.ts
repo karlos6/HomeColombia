@@ -3,11 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 import { HomeComponent } from './public/home/home.component';
+import { ContactComponent } from './public/contact/contact.component';
 
 
 
 const routes: Routes = [
-
+  {
+    path: 'contact',
+    component: ContactComponent
+  },
   {
     path: 'home',
     component: HomeComponent
