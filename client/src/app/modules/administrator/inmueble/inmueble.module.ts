@@ -8,9 +8,10 @@ import { InmuebleEditorComponent } from './inmueble-editor/inmueble-editor.compo
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {NgxPaginationModule}  from 'ngx-pagination';
+import { InmuebleViewComponent } from './inmueble-view/inmueble-view.component';
 
 @NgModule({
-  declarations: [InmuebleListComponent, InmuebleCreatorComponent, InmuebleEditorComponent],
+  declarations: [InmuebleListComponent, InmuebleCreatorComponent, InmuebleEditorComponent, InmuebleViewComponent],
   imports: [
     CommonModule,
     InmuebleRoutingModule,

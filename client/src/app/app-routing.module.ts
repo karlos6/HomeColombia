@@ -45,6 +45,10 @@ const routes: Routes = [
     loadChildren:'./modules/administrator/administrator.module#AdministratorModule'
   },
   {
+    path: 'solicitud',
+    loadChildren:'./modules/administrator/solicitud/solicitud.module#SolicitudModule'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }  

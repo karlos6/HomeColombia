@@ -31,7 +31,7 @@
     <div class="card-image">
       <img src="http://localhost:3000/api/containers/imagen/download/{{c.Imagen}}" width="100" height="300">
       <span class="card-title">{{c.TipoOferta}} - {{c.TipoInmueble}}</span>
-      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+      <a routerLink="/inmueble/view/{{c.id}}"  class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
     </div>
     <div class="card-content">
       <span>{{c.departmentName}} - {{c.cityName}} </span><br>

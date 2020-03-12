@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { InmuebleCreatorComponent } from './inmueble-creator/inmueble-creator.component';
 import { InmuebleEditorComponent } from './inmueble-editor/inmueble-editor.component';
 import { InmuebleListComponent } from './inmueble-list/inmueble-list.component';
+import { InmuebleViewComponent } from './inmueble-view/inmueble-view.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'list',
     component: InmuebleListComponent
+  },
+  {
+    path: 'view/:id',
+    component: InmuebleViewComponent
   },
   {
     path: '',
