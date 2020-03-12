@@ -17,19 +17,18 @@
     "root": "./server/files"
   },
   "Email": {
-    "name": "Email",
     "connector": "mail",
-    "transports": [
-      {
-        "type": "SMTP",
-        "host": "smtp.gmail.com",
-        "secure": true,
-        "port": 465,
-        "auth": {
-          "user": "kellerke06@gmail.com",
-          "pass": "3421054183rt0"
-        }
+    "transports": [{
+      "type": "SMTP",
+      "host": "smtp.gmail.com",
+      "secure": true,
+      "port": 465,
+      "auth": {
+        "user": "HomeColombia.col@gmail.com",
+        "pass": "h0m3c010m814"
       }
-    ]
+    }]
   }
+
+  
 }
