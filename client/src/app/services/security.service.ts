@@ -70,7 +70,6 @@ export class SecurityService {
 
   registerUser(user: UserModel):Observable<UserModel>{
 
-    console.log(user)
 
     const url_api = "http://localhost:3000/api/Users"
 
