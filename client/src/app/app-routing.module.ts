@@ -45,6 +45,10 @@ const routes: Routes = [
     loadChildren:'./modules/administrator/administrator.module#AdministratorModule'
   },
   {
+    path: 'adviser',
+    loadChildren:'./modules/adviser/adviser.module#AdviserModule'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }  

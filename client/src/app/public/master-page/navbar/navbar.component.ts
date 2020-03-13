@@ -34,7 +34,6 @@ export class NavbarComponent implements OnInit {
   }
 
   updateInfo() {
-    console.log("Hola, me acabo de loguear");
     if (this.userInfo.user != undefined && this.userInfo.user != null) {
       this.rol = this.userInfo.user.rol;
     }
