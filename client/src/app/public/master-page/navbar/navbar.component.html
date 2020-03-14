@@ -13,6 +13,7 @@
       <li *ngIf="!userLogged "><a routerLink="/security/login">Login</a></li>  
       
       <li *ngIf="userLogged && rol==0"><a routerLink="/administrator/creator">Admin</a></li>
+      <li *ngIf="userLogged && rol==0" ><a routerLink="/adviser/list">Asesores</a></li>
       <li *ngIf="userLogged && rol==0" ><a routerLink="/department/list">Departamento</a></li>
       <li *ngIf="userLogged && rol==0"><a routerLink="/city/list">Ciudad</a></li>
       <li *ngIf="userLogged && rol==0 || rol==1"><a routerLink="/inmueble/list">Inmueble</a></li>

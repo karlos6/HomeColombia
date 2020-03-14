@@ -7,13 +7,12 @@ import { Router } from '@angular/router';
 declare let mensajeModalGenerico: any;
 declare let mostrarMensajeDeError: any;
 
-
 @Component({
-  selector: 'app-admin-creator',
-  templateUrl: './admin-creator.component.html',
-  styleUrls: ['./admin-creator.component.css']
+  selector: 'app-adviser-creator',
+  templateUrl: './adviser-creator.component.html',
+  styleUrls: ['./adviser-creator.component.css']
 })
-export class AdminCreatorComponent implements OnInit {
+export class AdviserCreatorComponent implements OnInit {
 
   RValidation: FormGroup;
 
@@ -29,7 +28,7 @@ export class AdminCreatorComponent implements OnInit {
 
       username: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20), Validators.email]],
+      email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60), Validators.email]],
       password: ['', [Validators.required, Validators.maxLength(15), Validators.minLength(4)]],
       phone: ['', [Validators.required]]
 
@@ -51,7 +50,7 @@ export class AdminCreatorComponent implements OnInit {
       let c = new UserModel();
 
       c = {
-        rol:"0",
+        rol:"1",
         username: this.rr.username.value,
         lastName: this.rr.lastname.value,
         email: this.rr.email.value,
@@ -60,9 +59,8 @@ export class AdminCreatorComponent implements OnInit {
       }
       
       this.secSevice.registerUser(c).subscribe(c => {
-        this.router.navigate(['/security/login'])
+        this.router.navigate(['/adviser/list'])
       })
-
 
     } else if (this.RValidation.valid && this.captchap === null) {
       mostrarMensajeDeError("You forgot captchap validation ");

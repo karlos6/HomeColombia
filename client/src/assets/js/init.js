@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initMaterializeSelect(){
   // select
   var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, {});
-  
+  var instances = M.FormSelect.init(elems, {});  
 }
+
+

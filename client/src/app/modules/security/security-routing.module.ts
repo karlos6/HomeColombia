@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthenticationRequiredGuard } from 'src/app/helpers/guards/authentication-required.guard';
 import { UnauthenticationRequiredGuard } from 'src/app/helpers/guards/unauthentication-required.guard';
+import { EmailComponent } from './email/email.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
     path: 'logout',
     component: LogoutComponent,
     canActivate: [AuthenticationRequiredGuard]
+  },
+  {
+    path: 'email',
+    component: EmailComponent
   },
 
   {

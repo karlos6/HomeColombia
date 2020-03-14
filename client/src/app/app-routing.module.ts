@@ -45,12 +45,17 @@ const routes: Routes = [
     loadChildren:'./modules/administrator/administrator.module#AdministratorModule'
   },
   {
+<<<<<<< HEAD
     path: 'solicitud',
     loadChildren:'./modules/administrator/solicitud/solicitud.module#SolicitudModule'
   },
   {
     path: 'MisSolicitudes',
     loadChildren:'./modules/client/mis-solicitudes/mis-solicitudes.module#MisSolicitudesModule'
+=======
+    path: 'adviser',
+    loadChildren:'./modules/adviser/adviser.module#AdviserModule'
+>>>>>>> 54e988de899a7e07ada819a272bdaa08e0dbf6fc
   },
   {
     path: '**',

@@ -17,6 +17,7 @@ import {NgxPaginationModule}  from 'ngx-pagination';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FooterComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    
     
   ],
   imports: [
