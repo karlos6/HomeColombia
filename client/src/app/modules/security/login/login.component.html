@@ -2,72 +2,77 @@
 <br />
 <div id="login-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
-    <form [formGroup]="fgValidation" (ngSubmit)="loginEvent()" class="login-form">
-        <div class="row">
-        </div>
-        <div class="row">
-        <div class="input-field col s12">
-            <i class="material-icons prefix">mail_outline</i>
-            <input class="validate" formControlName="username" id="username" type="email">
-            <label for="username" data-error="wrong" data-success="right">Username</label>
-            <div class="warning-validation" *ngIf="fg.username.errors && (fg.username.dirty || fg.username.touched)">
-                <strong *ngIf="fg.username.errors.required">
-                    Username is required! <br />
-                </strong>
-                <strong *ngIf="fg.username.errors.minlength">
-                    Username must be at least 5 characters long! <br />
-                </strong>
-                <strong *ngIf="fg.username.errors.maxlength">
-                    Username must be up 40 characters long! <br />
-                </strong>
-                <strong *ngIf="fg.username.errors.email">
-                    Username must be an email!
-                </strong>
+        <form [formGroup]="fgValidation" (ngSubmit)="loginEvent()" class="login-form">
+            <div class="row">
             </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="input-field col s12">
-            <i class="material-icons prefix">lock_outline</i>
-            <input id="password" formControlName="password" type="password">
-            <label for="password">Password</label>
-            <div class="warning-validation" *ngIf="fg.password.errors && (fg.password.dirty || fg.password.touched)">
-                <strong *ngIf="fg.password.errors.required">
-                    Password is required! <br />
-                </strong>
-                <strong *ngIf="fg.password.errors.minlength">
-                    Password must be at least 8 characters long! <br />
-                </strong>
-                <strong *ngIf="fg.password.errors.maxlength">
-                    Password must be up 15 characters long!
-                </strong>
-                
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mail_outline</i>
+                    <input class="validate" formControlName="username" id="username" type="email">
+                    <label for="username" data-error="wrong" data-success="right">Username</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.username.errors && (fg.username.dirty || fg.username.touched)">
+                        <strong *ngIf="fg.username.errors.required">
+                            Username is required! <br />
+                        </strong>
+                        <strong *ngIf="fg.username.errors.minlength">
+                            Username must be at least 5 characters long! <br />
+                        </strong>
+                        <strong *ngIf="fg.username.errors.maxlength">
+                            Username must be up 40 characters long! <br />
+                        </strong>
+                        <strong *ngIf="fg.username.errors.email">
+                            Username must be an email!
+                        </strong>
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
-        <strong  class="warning-validation" *ngIf="badData==true" >
-            User don´t exist
-         </strong>
-        <div class="row">
-        <div class="input-field col s12">
-            <button [disabled]="fg.username.errors || fg.password.errors" class="btn waves-effect waves-light blue col s12" type="submit">Login
-              </button>
-        </div>
-        </div>
-        <div class="row">  
-        <div>
-            <re-captcha (resolved)="resolved($event)" siteKey="6LeStNkUAAAAAEfBEe3OVHKfrMDIjnDInQkyIHRf">
-            </re-captcha>
-          </div>
-        <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a routerLink="/security/register">Register Now!</a></p>
-        </div>
-        <div class="input-field col s6 m6 l6">
-            <p class="margin right-align medium-small"><a href="#">Forgot password?</a></p>
-        </div>          
-        </div>
-    </form>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="password" formControlName="password" type="password">
+                    <label for="password">Password</label>
+                    <div class="warning-validation"
+                        *ngIf="fg.password.errors && (fg.password.dirty || fg.password.touched)">
+                        <strong *ngIf="fg.password.errors.required">
+                            Password is required! <br />
+                        </strong>
+                        <strong *ngIf="fg.password.errors.minlength">
+                            Password must be at least 8 characters long! <br />
+                        </strong>
+                        <strong *ngIf="fg.password.errors.maxlength">
+                            Password must be up 15 characters long!
+                        </strong>
+
+                    </div>
+                </div>
+            </div>
+            <strong class="warning-validation" *ngIf="badData==true">
+                User don´t exist
+            </strong>
+            <div style="margin-left: 16%;" class="row">
+                <div>
+                    <re-captcha (resolved)="resolved($event)" siteKey="6LeStNkUAAAAAEfBEe3OVHKfrMDIjnDInQkyIHRf">
+                    </re-captcha>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button [disabled]="fg.username.errors || fg.password.errors"
+                        class="btn waves-effect waves-light blue col s12" type="submit">Login
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin medium-small"><a routerLink="/security/register">Register Now!</a></p>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin right-align medium-small"><a href="#">Forgot password?</a></p>
+                </div>
+            </div>
+        </form>
     </div>
-</div> 
+</div>
 <br />
 <br />

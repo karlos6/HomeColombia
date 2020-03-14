@@ -28,8 +28,6 @@ export class CityService {
     
   }
 
-
-
   saveCity(city: CityModel) {
     let token = this.secService.getToken();
     const url_api = `http://localhost:3000/api/cities?access_token=${token}`
@@ -38,8 +36,6 @@ export class CityService {
   }
 
   deleteCity(id: String) {
-    //TODO: Obtener token
-    //TODO: not null
     let token = this.secService.getToken();
     const url_api = `http://localhost:3000/api/cities/${id}/?access_token=${token}`
     return this.http.delete<CityModel>(url_api, { headers: this.headers })

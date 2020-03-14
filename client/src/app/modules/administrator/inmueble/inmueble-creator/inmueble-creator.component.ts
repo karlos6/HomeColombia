@@ -8,6 +8,8 @@ import { CityModel } from 'src/app/models/city.model';
 import { InmuebleService } from 'src/app/services/inmueble.service';
 import { HttpClient } from '@angular/common/http';
 import { InmuebleModel } from 'src/app/models/inmueble.model';
+import { LoginUserModel } from 'src/app/models/loginUser.model';
+import { SecurityService } from 'src/app/services/security.service';
 
 
 declare var initMaterializeSelect: any;
@@ -27,7 +29,8 @@ export class InmuebleCreatorComponent implements OnInit {
     private router: Router,
     private deptService: DepartmentService,
     private cityService: CityService,
-    private secInmueble: InmuebleService) { }
+    private secInmueble: InmuebleService,
+    private secService: SecurityService) { }
 
   private departments: DepartmentModel;
   private cities: CityModel;
@@ -108,38 +111,39 @@ export class InmuebleCreatorComponent implements OnInit {
   }
 
 
-
   //GUADAR INMUEBLES
   SaveInmueble() {
-    this.cityService.getCityById(this.fv.cityId.value).subscribe((cities: CityModel) => {
-      this.upload()
-      let c: InmuebleModel = {
-        TipoOferta: this.fv.TipoOferta.value,
-        TipoInmueble: this.fv.TipoInmueble.value,
-        departmentId: this.fv.departmentId.value,
-        departmentName: cities.departmentName,
-        cityId: this.fv.cityId.value,
-        cityName: cities.name,
-        Barrio: this.fv.Barrio.value,
-        Direccion: this.fv.Direccion.value,
-        Precio: this.fv.Precio.value,
-        Estrato: this.fv.Estrato.value,
-        Area: this.fv.Area.value,
-        NumeroHabitaciones: this.fv.NumeroHabitaciones.value,
-        NumeroBanos : this.fv.NumeroBanos.value,
-        EstadoInmueble: this.fv.EstadoInmueble.value,
-        Descripcion: this.fv.Descripcion.value,
-        Imagen : this.nameImagen()
-      }
-      console.log(c)
-      this.secInmueble.saveInmueble(c).subscribe();
-      this.router.navigate(['/inmueble/list'])
+    this.secService.getUserInfo().subscribe(user => {
+      this.cityService.getCityById(this.fv.cityId.value).subscribe((cities: CityModel) => {
+        this.upload()
+        let c: InmuebleModel = {
+          UserId : user.userId,
+          TipoOferta: this.fv.TipoOferta.value,
+          TipoInmueble: this.fv.TipoInmueble.value,
+          departmentId: this.fv.departmentId.value,
+          departmentName: cities.departmentName,
+          cityId: this.fv.cityId.value,
+          cityName: cities.name,
+          Barrio: this.fv.Barrio.value,
+          Direccion: this.fv.Direccion.value,
+          Precio: this.fv.Precio.value,
+          Estrato: this.fv.Estrato.value,
+          Area: this.fv.Area.value,
+          NumeroHabitaciones: this.fv.NumeroHabitaciones.value,
+          NumeroBanos: this.fv.NumeroBanos.value,
+          EstadoInmueble: this.fv.EstadoInmueble.value,
+          Descripcion: this.fv.Descripcion.value,
+          Imagen: this.nameImagen()
+        }
+        this.secInmueble.saveInmueble(c).subscribe();
+        this.router.navigate(['/inmueble/list'])
 
+      })
     })
   }
 
 
-  
+
 
 
 }

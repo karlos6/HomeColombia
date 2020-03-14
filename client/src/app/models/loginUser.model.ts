@@ -7,6 +7,7 @@ user:{
     email?: String;
     password?: String;
     cellphone?: String;
-}  
+}   
+    userId? : string;
     isLogged?: boolean = false;
 }

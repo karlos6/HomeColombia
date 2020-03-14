@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { SolicitudService } from 'src/app/services/solicitud.service';
 import { SolicitudModel } from 'src/app/models/solicitud.model';
 
+declare var modal: any;
+
 @Component({
-  selector: 'app-solicitud-list',
-  templateUrl: './solicitud-list.component.html',
-  styleUrls: ['./solicitud-list.component.css']
+  selector: 'app-mis-solicitudes-list',
+  templateUrl: './mis-solicitudes-list.component.html',
+  styleUrls: ['./mis-solicitudes-list.component.css']
 })
-export class SolicitudListComponent implements OnInit {
+export class MisSolicitudesListComponent implements OnInit {
 
   p: number = 1;
 
@@ -25,20 +27,4 @@ export class SolicitudListComponent implements OnInit {
       .subscribe((solicitudes: SolicitudModel) => (this.solicitudes = solicitudes))
   }
 
-
-  /*
-  openConfirmation(code: String) {
-    this.codeToRemove = code;
-    openConfirmationModal()
-
-  }
-
-  DeleteCity() {
-    this.cityService.deleteCity(this.codeToRemove).subscribe();
-    setTimeout(() => {
-      this.getListCity()
-    }, 500)
-    console.log("eliminado")
-  }
-  */
 }

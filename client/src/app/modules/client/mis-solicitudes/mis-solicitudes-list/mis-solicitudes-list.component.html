@@ -3,39 +3,58 @@
 <table style=" margin-left: 18%;"  class="responsive-table container">
     <thead>
         <tr>
+            
             <th>
-                Id
+                Imagen
             </th>
             <th>
-                Departamento
-            </th>
-            <th>
-                Ciudad
+                Dirección
             </th>
             <th>
                 Barrio
             </th>
             <th>
-                Dirección
+                Tipo Oferta
+            </th>
+            <th>
+                Tipo Inmueble
+            </th>
+            <th>
+                Precio
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Estado
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let c of solicitudes | paginate: { itemsPerPage: 8, currentPage: p }">
             <td>
-                {{c.ClientId}}
+                <img  id="myImg" src="http://localhost:3000/api/containers/imagen/download/{{c.Imagen}}" alt="Snow" width="100" height="150" style="width:100%; max-width: 300px">
             </td>
             <td>
-                {{c.departmentName}}
-            </td>
-            <td>
-                {{c.cityName}}
+                {{c.Direccion}}
             </td>
             <td>
                 {{c.Barrio}}
             </td>
             <td>
-                {{c.Direccion}}
+                {{c.TipoOferta}}
+            </td>
+            <td>
+                {{c.TipoInmueble}}
+            </td>
+            <td>
+                {{c.Precio}}
+            </td>
+            <td>
+                {{c.Fecha}}
+            </td>
+            <td>
+                {{c.Estado}}
             </td>
         </tr>
     </tbody>
@@ -50,6 +69,11 @@
     <div class="modal-footer">
         <a class="modal-close waves-effect waves-green btn red">Cancel</a> &nbsp;
         <a class="modal-close waves-effect waves-green btn green" (click)="DeleteCity()">Confirm</a>
-
     </div>
+</div>
+
+<div id = "myModal" class="modal">
+    <span class="close">& times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
 </div>

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SolicitudListComponent } from './solicitud-list/solicitud-list.component';
+import { MisSolicitudesListComponent } from './mis-solicitudes-list/mis-solicitudes-list.component';
 
 
 const routes: Routes = [
   {
     path: 'list',
-    component: SolicitudListComponent
+    component: MisSolicitudesListComponent
   },
   {
     path: '',
@@ -19,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SolicitudRoutingModule { }
+export class MisSolicitudesRoutingModule { }

@@ -1,5 +1,6 @@
 export class InmuebleModel{
     id?: string;
+    UserId? : string;
     TipoOferta? : string;
     TipoInmueble? :string;
     departmentId?: string;

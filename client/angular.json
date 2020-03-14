@@ -32,7 +32,8 @@
             "scripts": [
               "node_modules/materialize-css/dist/js/materialize.js",
               "src/assets/js/init.js",
-              "src/assets/js/actions.js"
+              "src/assets/js/actions.js",
+              "src/assets/js/modal.js"
             ]
           },
           "configurations": {

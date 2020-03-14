@@ -1,0 +1,24 @@
+{
+  "name": "solicitud",
+  "plural": "solicitudes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "_id": {
+      "type": "string"
+    },
+    "Fecha": {
+      "type": "date"
+    },
+    "Estado": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -11,21 +11,21 @@
       <i *ngIf="userLogged"class="material-icons right">account_circle</i></a></li>
       <li><a routerLink="/contact">Contáctanos</a></li>
       <li *ngIf="!userLogged "><a routerLink="/security/login">Login</a></li>  
-      <li *ngIf="userLogged"><a routerLink="/security/logout">Logout</a></li>
+      
       <li *ngIf="userLogged && rol==0"><a routerLink="/administrator/creator">Admin</a></li>
       <li *ngIf="userLogged && rol==0" ><a routerLink="/department/list">Departamento</a></li>
       <li *ngIf="userLogged && rol==0"><a routerLink="/city/list">Ciudad</a></li>
       <li *ngIf="userLogged && rol==0 || rol==1"><a routerLink="/inmueble/list">Inmueble</a></li>
+      <li *ngIf="userLogged && rol==0 || rol==1" ><a routerLink="/solicitud/list">Solicitudes</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- barra desplegable -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
   <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  <li *ngIf="userLogged && rol==2" ><a routerLink="/MisSolicitudes/list">Mis Solicitudes</a></li>
+  <li *ngIf="userLogged"><a routerLink="/security/logout">Logout</a></li>
 </ul>
 
 
