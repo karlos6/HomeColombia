@@ -1,0 +1,43 @@
+<br>
+<div style="margin-left: 30%;"id="login-page" class="row container">
+    <div class="col s7 z-depth-6 card-panel">
+        <div class="row">
+            <form [formGroup]="frmValidator" (ngSubmit)="UpdateSolicitud()" class="col s12">
+                <br>
+
+                <!-- AFFAIR-->
+                <div  class="row">
+                    <div class="input-field col s12">
+                        <select class="browser-default" formControlName="Estado">
+                            <option  value="">ASIGAR DECISIÓN</option>
+                            <option value="Aceptado">ACEPTADO</option>
+                            <option value="Rechazado">RECHAZADO</option>
+                            <option value="aceptada-co-deudor">ACEPTADO CON CODEUDOR</option>
+                        </select>
+                        <div class="warning-validation" *ngIf="fv.Estado.errors && (fv.Estado.dirty || fv.Estado.touched)">
+                            <strong *ngIf="fv.Estado.errors.required">Es Requerido</strong>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- MESSAGE-->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea formControlName="Comentario" id="textarea2" class="materialize-textarea"
+                            data-length="120"></textarea>
+                        <label for="textarea2">Comentario</label>
+                        <div class="warning-validation" *ngIf="fv.Comentario.errors && (fv.Comentario.dirty || fv.Comentario.touched)">
+                            <strong *ngIf="fv.Comentario.errors.required">Es Requerido</strong>
+                        </div>
+                    </div>
+                </div>
+                <button [disabled]= "fv.Comentario.errors || fv.Estado.errors " class="btn waves-effect waves-light"
+                    style="margin-left: 38%;" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
