@@ -14,14 +14,14 @@ export class AdviserListComponent implements OnInit {
   
   codeToRemove:  String;
   constructor(private adviserService: AdviserService) { }
-  private users: UserModel
+ users: UserModel
    ngOnInit() {
      this.getListUser()
    }
 
 
    getListUser(){
-     console.log("gola")
+  
      this.adviserService.getAllUsers().subscribe((users : UserModel) =>
       (this.users = users
         ));

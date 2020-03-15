@@ -56,7 +56,6 @@ export class AdviserEditorComponent implements OnInit {
 
 
   UpdateUser(){
-    console.log(this.user);
     let u : UserModel = {
         username:this.fv.username.value,
         lastName:this.user.lastName,
@@ -67,7 +66,7 @@ export class AdviserEditorComponent implements OnInit {
         
     }
     
-        this.adviserService.updateUser(this.user).subscribe();
+        this.adviserService.updateUser(u).subscribe();
         this.router.navigate(['/adviser/list'])
       }
     

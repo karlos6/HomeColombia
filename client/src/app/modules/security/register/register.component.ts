@@ -52,7 +52,8 @@ export class RegisterComponent implements OnInit {
       let c = new UserModel();
 
       c = {
-        rol:"0",
+        rol:"2",
+        status:false,
         username: this.rr.username.value,
         lastName: this.rr.lastname.value,
         email: this.rr.email.value,

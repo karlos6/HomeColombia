@@ -16,11 +16,15 @@
                 Cellphone
             </th>
             <th>
+                Status
+            </th>
+            <th>
                 Edit
             </th>
             <th>
                 Delete
             </th>
+           
         </tr>
     </thead>
     <tbody>
@@ -33,6 +37,10 @@
             </td>
             <td>
                 {{u.cellphone}}
+            </td>
+            <td>
+                    <p *ngIf="u.status==true">Aceptado</p>
+                    <p *ngIf="u.status==false">Rechazado</p>
             </td>
             <td>
                 <a routerLink="/adviser/editor/{{u.id}}" class="waves-effect waves-light btn orange">Edit
