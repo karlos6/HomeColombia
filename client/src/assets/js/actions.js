@@ -24,5 +24,12 @@ function mensajeModalGenerico(m) {
     instance.open();
 }
 
+function Detalles(m) {
+    document.querySelector("#pmsj").innerHTML = m;
+    var elem = document.querySelector('#modalmsj');
+    let instance = M.Modal.init(elem, {});
+    instance.open();
+}
+
 
 

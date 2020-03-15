@@ -136,7 +136,9 @@ export class InmuebleCreatorComponent implements OnInit {
           Imagen: this.nameImagen()
         }
         this.secInmueble.saveInmueble(c).subscribe();
+        setTimeout(() =>{
         this.router.navigate(['/inmueble/list'])
+        },500)
 
       })
     })

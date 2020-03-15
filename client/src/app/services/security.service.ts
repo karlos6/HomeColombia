@@ -17,6 +17,10 @@ export class SecurityService {
     this.verifyUserInSession();
   }
 
+  
+  users: Observable<any>;
+  user: Observable<any>;
+
    headers: HttpHeaders = new HttpHeaders({"content-type": "application/json"});
 
    verifyUserInSession(){
@@ -79,13 +83,14 @@ export class SecurityService {
   }
 
   registerUser(user: UserModel):Observable<UserModel>{
-
-
     const url_api = "http://localhost:3000/api/Users"
-
     return this.http.post<UserModel>(url_api,user,{headers: this.headers}).
     pipe(map(data => data))
+  }
 
+  getUserById(id: string) {
+    const url_api = `http://localhost:3000/api/Users/${id}`
+    return this.user = this.http.get(url_api);
   }
 
 }

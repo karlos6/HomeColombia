@@ -26,7 +26,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FooterComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ContactComponent,
+    ContactComponent
     
     
   ],

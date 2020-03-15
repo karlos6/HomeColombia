@@ -13,4 +13,5 @@ export class SolicitudModel {
     Fecha? :string;
     Estado?: String;
     Imagen? :{};
+    Comentario? :string
 }
