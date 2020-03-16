@@ -14,7 +14,11 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "AccessToken": {
     "dataSource": "db",
@@ -51,13 +55,11 @@
     "dataSource": "UploadFiles",
     "public": true
   },
-  "Email":{
+  "Email": {
     "dataSource": "Email"
   },
   "inmueble": {
     "dataSource": "db",
     "public": true
   }
-
-
 }

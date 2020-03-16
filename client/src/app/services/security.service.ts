@@ -68,14 +68,12 @@ export class SecurityService {
     return localStorage.getItem('accessToken');
   }
 
+  /* REGISTRO DE USUSARIOS */
   registerUser(user: UserModel):Observable<UserModel>{
-
 
     const url_api = "http://localhost:3000/api/Users"
 
-    return this.http.post<UserModel>(url_api,user,{headers: this.headers}).
-    pipe(map(data => data))
-
+    return this.http.post<UserModel>(url_api,user,{headers: this.headers})
   }
 
 }

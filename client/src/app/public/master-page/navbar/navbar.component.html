@@ -23,7 +23,8 @@
 
 <!-- barra desplegable -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
+  <li *ngIf="userLogged && rol==0 || rol==1"><a routerLink="/security/email">Send Email</a></li>
+  <li class="divider"></li>
   <li><a href="#!">two</a></li>
   <li class="divider"></li>
   <li><a href="#!">three</a></li>

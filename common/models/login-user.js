@@ -4,7 +4,7 @@ module.exports = function (Loginuser) {
     Loginuser.sendEmail = (message,  subject, emailAddresses, cb) => {
         Loginuser.app.models.Email.send({
             to: emailAddresses,
-            from: 'karlos.keller.97@gmail.com',
+            from: 'karlos',
             subject: subject,
             text: message,
             html: message
@@ -43,5 +43,7 @@ module.exports = function (Loginuser) {
             ],
             returns: { arg: 'reponse', type: 'string'}
         }
-    );
+    ); 
+    
+    
 };
