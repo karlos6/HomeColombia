@@ -36,7 +36,6 @@ export class InmuebleCreatorComponent implements OnInit {
     this.formGenerator();
     this.getListDepartment();
     this.getListCityxDepartment();
-
   }
 
   ngAfterViewInit() {
@@ -116,7 +115,7 @@ export class InmuebleCreatorComponent implements OnInit {
       this.upload()
       let c: InmuebleModel = {
         TipoOferta: this.fv.TipoOferta.value,
-        TipoInmueble: this.fv.TipoOferta.value,
+        TipoInmueble: this.fv.TipoInmueble.value,
         departmentId: this.fv.departmentId.value,
         departmentName: cities.departmentName,
         cityId: this.fv.cityId.value,
@@ -138,6 +137,9 @@ export class InmuebleCreatorComponent implements OnInit {
 
     })
   }
+
+
+  
 
 
 }

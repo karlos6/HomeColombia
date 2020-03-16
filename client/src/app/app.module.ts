@@ -12,7 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { GlobalHttpRequestInterceptorServiceService } from 'src/app/services/global-http-request-interceptor-service.service';
-import { AdminCreatorComponent } from './modules/administrator/admin-creator/admin-creator.component';
+import { ContactComponent } from './public/contact/contact.component';
+import {NgxPaginationModule}  from 'ngx-pagination';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,13 +26,17 @@ import { AdminCreatorComponent } from './modules/administrator/admin-creator/adm
     FooterComponent,
     PageNotFoundComponent,
     HomeComponent,
-    AdminCreatorComponent,
+    ContactComponent,
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

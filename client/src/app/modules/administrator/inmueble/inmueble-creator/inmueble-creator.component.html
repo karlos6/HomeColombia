@@ -73,12 +73,12 @@
         <div class="input-field col s6">
           <select class="browser-default" formControlName="Estrato">
             <option value="">ESTRATO</option>
-            <option value="E1">1</option>
-            <option value="E2">2</option>
-            <option value="E3">3</option>
-            <option value="E4">4</option>
-            <option value="E5">5</option>
-            <option value="E6">6</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
           </select>
         </div>
       </div>
@@ -93,11 +93,11 @@
         <div class="input-field col s6">
           <select class="browser-default" formControlName="NumeroHabitaciones">
             <option value="">NÚMERO DE HABITACIONES</option>
-            <option value="H1">1</option>
-            <option value="H2">2</option>
-            <option value="H3">3</option>
-            <option value="H4">4</option>
-            <option value="H5">5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
         </div>
       </div>
@@ -106,10 +106,10 @@
         <div class="input-field col s6">
           <select class="browser-default" formControlName="NumeroBanos">
             <option value="">NÚMERO DE BAÑOS</option>
-            <option value="B1">1</option>
-            <option value="B2">2</option>
-            <option value="B3">3</option>
-            <option value="B4">4</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
           </select>
 
         </div>
@@ -141,7 +141,7 @@
 
       <div class="row">
 
-        <span class="input-group-text upload" (click)="uploadas()" id="btnUpload">Upload</span>
+        <button  class="input-group-text upload"  (click)="upload()"  id="btnUpload">Upload</button>
 
         <input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01"
           aria-describedby="inputGroupFileAddon01">

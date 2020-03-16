@@ -51,8 +51,13 @@
     "dataSource": "UploadFiles",
     "public": true
   },
+  "Email":{
+    "dataSource": "Email"
+  },
   "inmueble": {
     "dataSource": "db",
     "public": true
   }
+
+
 }

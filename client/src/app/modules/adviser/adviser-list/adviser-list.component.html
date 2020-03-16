@@ -1,0 +1,63 @@
+<br />
+<a  style=" margin-left: 78%;"  routerLink="/adviser/creator" class="waves-effect waves-light btn">New Register</a>
+<br />
+<br />
+
+<table style=" margin-left: 18%;"  class="responsive-table container">
+    <thead>
+        <tr>
+            <th>
+               Name
+            </th>
+            <th>
+               Email
+            </th>
+            <th>
+                Cellphone
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users | paginate: { itemsPerPage: 8, currentPage: p }">
+            <td>
+                {{u.username}}
+            </td>
+            <td>
+                {{u.email}}
+            </td>
+            <td>
+                {{u.cellphone}}
+            </td>
+            <td>
+                <a routerLink="/adviser/editor/{{u.id}}" class="waves-effect waves-light btn orange">Edit
+                    <i class="material-icons right">edit</i>
+                </a>
+            </td>
+            <td>
+                <button class="btn waves-effect waves-light red" type="button" name="action"
+                    (click)="openConfirmation(u.id)">Delete
+                    <i class="material-icons right">delete</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls class="center" (pageChange)="p = $event"></pagination-controls>
+
+<div id="modalConfirmation" class="modal">
+    <div class="modal-content">
+        <h4>Confirmation Window</h4>
+        <p>Do you confirm remove this element?</p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-green btn red">Cancel</a> &nbsp;
+        <a class="modal-close waves-effect waves-green btn green" (click)="DeleteCity()">Confirm</a>
+
+    </div>
+</div>

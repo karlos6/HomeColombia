@@ -1,0 +1,50 @@
+<br>
+<div id="login-page" class="row container">
+  <div class="col s12 z-depth-6 card-panel">
+    <div class="row">
+      <form [formGroup]="CValidation" (ngSubmit)="sendDataEmail()" class="col s12">
+        <br>
+
+        <!-- AFFAIR-->
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">assignment_ind</i>
+            <input formControlName="affair" id="input_text" id="negrita" type="text" data-length="10">
+            <label for="input_text">Affair</label>
+
+            <!-- VALIDATIONS AFFAIR-->
+            <div *ngIf="rr.affair.errors && (rr.affair.dirty || rr.affair.touched)">
+              <strong *ngIf="rr.affair.errors.required">email is required!</strong>
+              <strong *ngIf="rr.affair.errors.minlength"> email must be at least 10 char!</strong>
+              <strong *ngIf="rr.affair.errors.maxlength"> email must be up to 20 char!</strong>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- MESSAGE-->
+        <div class="row">
+          <div class="input-field col s11">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea formControlName="message" id="textarea2" class="materialize-textarea"
+              data-length="120"></textarea>
+            <label for="textarea2">Message</label>
+
+            <!-- VALIDATIONS MESSAGE-->
+            <div *ngIf="rr.message.errors && (rr.message.dirty || rr.message.touched)">
+              <strong *ngIf="rr.message.errors.required">email is required!</strong>
+              <strong *ngIf="rr.message.errors.minlength"> email must be at least 30 char!</strong>
+              <strong *ngIf="rr.message.errors.maxlength"> email must be up to 120 char!</strong>
+            </div>
+
+          </div>
+        </div>
+        <button [disabled]= "rr.message.errors || rr.affair.errors"class="btn waves-effect waves-light" style="margin-left: 35%;" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+</div>

@@ -27,13 +27,20 @@ export class InmuebleService {
   // METODO QUE GUARDA LAS IMAGENES EN EL LOOPBACK
   loadImagen(formData: FormData) {
 
-    this.http.post("http://localhost:3000/api/containers/images/upload", formData)
+    this.http.post("http://localhost:3000/api/containers/imagen/upload", formData)
       .subscribe((response) => {
         console.log('response received is ', response);
       })
   }
 
-
+  //METODO OBTENER NOMBRE DE LAS IMAGENES
+  getImagenByName(name: string) {
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/containers/imagen/files/${name}?access_token=${token}`
+    return this.http.get(url_api);
+  }
+  
+  //GUARDAR INMUEBLE
   saveInmueble(inmueble: InmuebleModel) {
     let token = this.secService.getToken();
     const url_api = `http://localhost:3000/api/inmuebles?access_token=${token}`
@@ -41,12 +48,46 @@ export class InmuebleService {
       .pipe(map(data => data))
   }
 
+  //Obtener todos los inmuebles
   getAllInmueble() {
     const url_api = "http://localhost:3000/api/inmuebles";
     return this.http.get(url_api);
     
   }
 
+  //Obtiene un inmueble con su Id
+  getInmuebleById(id: string) {
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/inmuebles/${id}?access_token=${token}`
+    return this.inmueble = this.http.get(url_api);
+  }
+
+  updateInmueble(inmueble){
+    const inmuebleId =  inmueble.id;
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/inmuebles/${inmuebleId}/?access_token=${token}`
+    return this.http.put<InmuebleModel>(url_api, inmueble, {headers : this.headers})
+    .pipe(map(data => data));
+  }
 
 
+  deleteInmueble(id: String) {
+    //TODO: Obtener token
+    //TODO: not null
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/inmuebles/${id}/?access_token=${token}`
+    return this.http.delete<InmuebleModel>(url_api, { headers: this.headers })
+      .pipe(map(data => data));
+  }
+
+  //FILTRO DE TIPO DE OFERTA
+  getOfertaxInmueble(oferta: string){
+    const url_api = `http://localhost:3000/api/inmuebles?filter=%7B%22where%22%3A%7B%22TipoOferta%22%3A%20%22${oferta}%22%7D%7D`
+    return this.inmueble = this.http.get(url_api);
+  }
+
+  getTipoInmueble(tipo: string){
+    const url_api = `http://localhost:3000/api/inmuebles?filter=%7B%22where%22%3A%7B%22TipoInmueble%22%3A%20%22${tipo}%22%7D%7D`
+    return this.inmueble = this.http.get(url_api);
+  }
 }
