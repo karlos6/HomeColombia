@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminCreatorComponent } from './admin-creator/admin-creator.component';
 import { RolRequiredGuard } from 'src/app/helpers/guards/rol-required.guard';
+import { GraphicsComponent } from './graphics/graphics.component';
 
 
 const routes: Routes = [
@@ -11,9 +12,14 @@ component:AdminCreatorComponent,
 canActivate:[RolRequiredGuard]
 },
 {
+  path:'graphs',
+  component:GraphicsComponent,
+  canActivate:[RolRequiredGuard]
+  },
+{
   path:'',
   pathMatch:'full',
-  redirectTo:'/departament'
+  redirectTo:'creator'
 }
 ];
 

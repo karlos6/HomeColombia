@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { AdministratorRoutingModule } from './administrator-routing.module';
 import { AdminCreatorComponent } from './admin-creator/admin-creator.component';
 import { RecaptchaModule,RecaptchaFormsModule } from 'ng-recaptcha';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GraphicsComponent } from './graphics/graphics.component'
 
 
 @NgModule({
-  declarations: [AdminCreatorComponent],
+  declarations: [AdminCreatorComponent, GraphicsComponent],
   imports: [
     CommonModule,
     AdministratorRoutingModule,

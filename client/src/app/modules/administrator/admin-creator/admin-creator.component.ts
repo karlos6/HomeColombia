@@ -61,7 +61,7 @@ export class AdminCreatorComponent implements OnInit {
       }
       
       this.secSevice.registerUser(c).subscribe(c => {
-        this.router.navigate(['/security/login'])
+        this.router.navigate(['/home'])
       })
 
 

@@ -26,7 +26,7 @@ export class AdviserService {
   getAllUsers() {
     let rol="1";
     const url_api = "http://localhost:3000/api/users?filter=%7B%22where%22%3A%7B%22rol%22%3A%20%221%22%7D%7D";
-    return this.http.get(url_api);
+    return this.http.get<UserModel[]>(url_api);
     
   }
 
