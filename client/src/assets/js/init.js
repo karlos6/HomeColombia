@@ -14,10 +14,3 @@ document.addEventListener('DOMContentLoaded', function() {
   var instances = M.Dropdown.init(elems);
 });
 
-function initMaterializeSelect(){
-  // select
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, {});  
-}
-
-
