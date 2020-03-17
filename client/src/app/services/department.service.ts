@@ -23,7 +23,7 @@ export class DepartmentService {
     Authorization: this.secService.getToken()
   });
 
-  getAllDepartments() {
+  getAllDepartments():Observable<DepartmentModel> {
     const url_api = "http://localhost:3000/api/departments";
     return this.http.get(url_api);
   }

@@ -37,17 +37,17 @@ export class DepartmentCreatorComponent implements OnInit {
   }
 
 
-  SaveDepartment() {
+  SaveDepartment() {  
     let c : DepartmentModel = {
       code: this.fv.code.value,
       name: this.fv.name.value
     }
+   
+  
+    
 
-    this.deptService.getAllDepartments().subscribe(l=>{this.listdeparment = l})
-
-    //var bandera = this.listdeparment.find(c => c.email = this.fv.email)
-
-
+    //var j = this.listdeparment.find(c=> c.name = this.fv.name.value)
+    //console.log(j)  
 
     
     this.deptService.saveDepartment(c).subscribe();
