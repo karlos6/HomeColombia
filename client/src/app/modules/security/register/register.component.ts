@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
       
       this.secSevice.registerUser(c).subscribe(j => {
         console.log(j)
-        //this.secEmai.validTokenEmail(j.id).subscribe(d=>{console.log(j)}) 
+        this.secEmai.validTokenEmail(j.id).subscribe(d=>{console.log(j)}) 
 
 
         this.router.navigate(['/security/login'])

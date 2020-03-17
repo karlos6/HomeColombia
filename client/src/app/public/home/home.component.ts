@@ -28,8 +28,8 @@ export class HomeComponent implements OnInit {
   }
   
   ngAfterViewInit() {
-    initMaterializeSelect()
-    this.getListInmuebleByEstado()
+    initMaterializeSelect();
+    this.getListInmuebleByEstado();
   }
 
   get fv() {

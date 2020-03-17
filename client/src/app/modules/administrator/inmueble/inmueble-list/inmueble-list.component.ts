@@ -3,6 +3,7 @@ import { InmuebleService } from 'src/app/services/inmueble.service';
 import { InmuebleModel } from 'src/app/models/inmueble.model';
 
 declare var openConfirmationModal: any;
+declare var initMaterializeSelect: any;
 
 @Component({
   selector: 'app-inmueble-list',
@@ -21,6 +22,10 @@ export class InmuebleListComponent implements OnInit {
 
   ngOnInit() {
     this.getListInmueble()
+  }
+
+  ngAfterViewInit(){
+    initMaterializeSelect()
   }
 
   getListInmueble() {
