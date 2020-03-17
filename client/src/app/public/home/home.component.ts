@@ -11,6 +11,7 @@ declare var initMaterializeSelect: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
 
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
   
   ngAfterViewInit() {
     initMaterializeSelect()
-    this.getListInmueble();
+    this.getListInmuebleByEstado()
   }
 
   get fv() {
@@ -42,6 +43,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  getListInmuebleByEstado(){
+    this.secInmueble.getInfoInmuebleByEstado().
+    subscribe((inmuebles: InmuebleModel) => (this.inmuebles = inmuebles));
+  }
 
   getListInmueble() {
     this.secInmueble.getAllInmueble()

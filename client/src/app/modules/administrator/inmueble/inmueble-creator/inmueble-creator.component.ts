@@ -117,6 +117,7 @@ export class InmuebleCreatorComponent implements OnInit {
         this.upload()
         let c: InmuebleModel = {
           UserId : user.userId,
+          Estado : 'Disponible',
           TipoOferta: this.fv.TipoOferta.value,
           TipoInmueble: this.fv.TipoInmueble.value,
           departmentId: this.fv.departmentId.value,

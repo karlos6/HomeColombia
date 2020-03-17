@@ -97,4 +97,10 @@ export class InmuebleService {
     const url_api = `http://localhost:3000/api/inmuebles?filter=%7B%22where%22%3A%7B%22id%22%3A%20%22${id}%22%7D%7D`
     return this.inmueble = this.http.get(url_api);
   }
+
+  
+  getInfoInmuebleByEstado() {
+    const url_api = `http://localhost:3000/api/inmuebles?filter=%7B%22where%22%3A%7B%22Estado%22%3A%20%22Disponible%22%7D%7D`
+    return this.inmueble = this.http.get(url_api);
+  }
 }

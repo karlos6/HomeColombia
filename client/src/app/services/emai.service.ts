@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmaiService {
+
+  headers: HttpHeaders = new HttpHeaders({"content-type": "application/json"});
 
   constructor( private http: HttpClient) { }
 
@@ -16,6 +18,21 @@ export class EmaiService {
 
     return this.http.get(url);
   }
+
+  validTokenEmail(id:String):Observable<any>{
+    console.log(id)
+    const url = `http://localhost:3000/api/Users/${id}/verify`    
+
+    return this.http.post(url,{headers: this.headers});
+  }
+
+  alternativa(user){
+
+    
+  }
+
+  
+
 
 
   

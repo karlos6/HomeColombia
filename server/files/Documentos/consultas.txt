@@ -1,0 +1,165 @@
+###La sucursal donde trabajaron mas ortodoncistas
+db.consultorioxodontologo.aggregate([
+    {
+        $lookup: {
+            from: "odontologo",
+            localField: "cododontologo",
+            foreignField: "cododontologo",
+            as: "aux"
+        }
+    },
+    {
+        $unwind : "$aux"
+    },
+    {
+        $sortByCount: "$aux.cododontologo"
+    },
+    {
+        $sort : { "aux.cododontologo" : -1}
+    },
+    {
+        $limit : 1
+    }
+])
+
+
+###Número de endodoncistas que tienen citas entre las 8:00 y las 10:00
+select CodOdontologo
+from Odontologo
+where (Especialidad = 'Endodoncia' and CodOdontologo in (select CodOdontologo
+                                                        from Reserva
+                                                        where  (to_number(to_char(fecha,'HH24'))) >=  8  and (to_number(to_char(fecha,'HH24'))) <= 10))
+
+
+
+
+###Número y nombre del odontologo al que no se le presentaron los pacientes:
+
+select CodOdontologo, NomOdontologo
+from Odontologo
+where  CodOdontologo in (select CodOdontologo
+                        from Reserva
+                        where Estado = 'No se Presento')
+
+db.reserva.aggregate([
+    {
+        $match: {
+            "estado": "No Se Presento",
+            "paciente.tipo" : "Subsidiado"
+        }
+    },
+    {
+        $lookup: {
+            from: "odontologo",
+            localField: "cododontologo",
+            foreignField: "cododontologo",
+            as: "aux"
+        }
+    },
+    {
+     $unwind: "$aux"    
+    },
+    {
+      $match: {
+          "aux.especialidad" : "Endodoncia"
+      }  
+    },
+    {
+        $project : {
+            _id :0,
+            "aux.nomodontologo" :1,
+            "aux.cododontologo" :1
+        }
+    }
+])
+
+
+###Paciente con más citas :
+select nombre, (select count(cedula) from reserva where cedula = p.cedula)
+from paciente p
+where cedula in (select cedula 
+                 from reserva
+                where (select count(cedula) from reserva where cedula = p.cedula) >= all (select count(cedula) from reserva group by cedula))
+
+db.reserva.aggregate([
+    {
+        $group: { 
+            _id: {paciente:"$paciente.cedula", nombre: "$paciente.nombre"},
+            cant_citas: {$sum:1}
+        }
+    },
+    {
+        $sort: {
+            cant_citas: -1
+        }
+    }
+])
+
+###Odontologo con más citas : 
+select nomodontologo, (select count(cododontologo) from reserva where cododontologo = o.cododontologo)
+from odontologo o
+where cododontologo in (select cododontologo 
+                 from reserva
+                where (select count(cododontologo) from reserva where cododontologo = o.cododontologo) >= all (select count(cododontologo) from reserva group by cododontologo))
+
+
+db.reserva.aggregate([
+    {
+        $lookup: {
+            from: "odontologo",
+            localField: "cododontologo",
+            foreignField: "cododontologo",
+            as: "aux"
+        }
+    },
+    {
+      $unwind : "$aux"  
+    },
+    {
+        $group: { 
+            _id: {cododontologo:"$cododontologo", nombre : "$aux.nomodontologo"},
+            cant_citas: {$sum:1}
+        }
+    },
+    {
+        $sort: {
+            cant_citas: -1
+        }
+    },
+    {
+        $limit : 1
+    }
+])
+
+
+###paciente que ha dado mayor abono en las citas:
+select *
+from paciente
+where cedula in (select cedula 
+                 from reserva
+                 where abono in (select max(abono)
+                                 from reserva))
+
+db.reserva.aggregate([
+    {
+        $match: {
+            abono: { $gt: 0 }
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            "paciente.nombre": 1,
+            mayor: { $max: "$abono" }
+        }
+    },
+    {
+        $sort: { "mayor": -1 }
+    },
+    {
+        $limit: 1
+    }
+])
+
+
+

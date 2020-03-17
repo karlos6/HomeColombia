@@ -13,6 +13,7 @@ import { DepartmentModel } from 'src/app/models/department.model';
 export class DepartmentCreatorComponent implements OnInit {
 
   frmValidator: FormGroup;
+  listdeparment: DepartmentModel
 
   constructor(private fb: FormBuilder, 
     private router: Router,
@@ -37,31 +38,20 @@ export class DepartmentCreatorComponent implements OnInit {
 
 
   SaveDepartment() {
+    let c : DepartmentModel = {
+      code: this.fv.code.value,
+      name: this.fv.name.value
+    }
 
-    let dept = this.deptService.getAllDepartments()
-    .subscribe((departments: DepartmentModel) => (
-      this.departments = departments
-      //console.log(this.departments[1].name)
-      ));
+    this.deptService.getAllDepartments().subscribe(l=>{this.listdeparment = l})
 
-      let name = this.fv.name.value
-      this.deptService.existdepartmentName(name).subscribe((departments: DepartmentModel) => {
-        if(this.fv.name.value ==  departments.name){
-          console.log("ya existe ese departamento")
-        }else{
-          console.log("hola")
-          let c : DepartmentModel = {
-            code: this.fv.code.value,
-            name: this.fv.name.value
-          }
-          console.log(c)
-        }
-      })   
-  
-      
-  
-      //this.deptService.saveDepartment(c).subscribe();
-      //this.router.navigate(['/department/list'])
+    //var bandera = this.listdeparment.find(c => c.email = this.fv.email)
+
+
+
+    
+    this.deptService.saveDepartment(c).subscribe();
+    this.router.navigate(['/department/list'])
     
   }
 
