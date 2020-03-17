@@ -51,6 +51,7 @@ export class AdviserCreatorComponent implements OnInit {
 
       c = {
         rol:"1",
+        status:false,
         username: this.rr.username.value,
         lastName: this.rr.lastname.value,
         email: this.rr.email.value,

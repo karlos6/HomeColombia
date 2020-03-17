@@ -7,4 +7,5 @@ export class UserModel {
     password?: String;
     cellphone?: String;
     isLogged?: boolean = false;
+    status?:boolean;
 }

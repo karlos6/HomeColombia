@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
 
       c = {
         rol:"2",
+        status:false,
         username: this.rr.username.value,
         lastName: this.rr.lastname.value,
         email: this.rr.email.value,

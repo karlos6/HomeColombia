@@ -14,6 +14,7 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
   declarations: [AdviserCreatorComponent, AdviserEditorComponent, AdviserListComponent],
   imports: [
     CommonModule,
+    
     AdviserRoutingModule,
     NgxPaginationModule,
     FormsModule,

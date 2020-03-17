@@ -62,6 +62,16 @@ export class SecurityService {
   isActiveSession() {
     return this.userInfo.getValue().isLogged;
   }
+  userRol(){
+  
+    if(this.userInfo.getValue().user==undefined){
+      return"2";
+    }else{
+
+      return this.userInfo.getValue().user.rol;
+    }
+   
+  }
 
   setToken(token): void {
     localStorage.setItem("accessToken", token);

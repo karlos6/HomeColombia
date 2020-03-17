@@ -52,6 +52,7 @@ export class AdminCreatorComponent implements OnInit {
 
       c = {
         rol:"0",
+        status:true,
         username: this.rr.username.value,
         lastName: this.rr.lastname.value,
         email: this.rr.email.value,
@@ -60,7 +61,7 @@ export class AdminCreatorComponent implements OnInit {
       }
       
       this.secSevice.registerUser(c).subscribe(c => {
-        this.router.navigate(['/security/login'])
+        this.router.navigate(['/home'])
       })
 
 

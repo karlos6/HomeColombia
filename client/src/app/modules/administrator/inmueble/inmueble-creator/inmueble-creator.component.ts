@@ -95,7 +95,6 @@ export class InmuebleCreatorComponent implements OnInit {
     let formData = new FormData();
     for (var i = 0; i < this.uploadedFiles.length; i++) {
       formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
-      console.log(this.uploadedFiles[i].name)
     }
     this.secInmueble.loadImagen(formData);
 

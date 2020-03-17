@@ -1,3 +1,4 @@
+
 <br />
 <a  style=" margin-left: 78%;"  routerLink="/adviser/creator" class="waves-effect waves-light btn">New Register</a>
 <br />
@@ -14,12 +15,6 @@
             </th>
             <th>
                 Cellphone
-            </th>
-            <th>
-                Status
-            </th>
-            <th>
-                Edit
             </th>
             <th>
                 Delete
@@ -39,19 +34,8 @@
                 {{u.cellphone}}
             </td>
             <td>
-                    <p *ngIf="u.status==true">Aceptado</p>
-                    <p *ngIf="u.status==false">Rechazado</p>
-            </td>
-           
-            <td>
-                <a routerLink="/adviser/editor/{{u.id}}" class="waves-effect waves-light btn orange">Edit
-                    <i class="material-icons right">edit</i>
-                </a>
-            </td>
-            <td>
                 <button class="btn waves-effect waves-light red" type="button" name="action"
-                    (click)="openConfirmation(u.id)">Delete
-                    <i class="material-icons right">delete</i>
+                    (click)="changeAsesor(u.id)">Select
                 </button>
             </td>
         </tr>
