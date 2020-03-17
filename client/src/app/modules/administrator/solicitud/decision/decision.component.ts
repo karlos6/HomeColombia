@@ -40,7 +40,7 @@ export class DecisionComponent implements OnInit {
 
   formGenerator() {
     this.frmValidator = this.fb.group({
-      Nombre: ['', [Validators.required]],
+      Estado: ['', [Validators.required]],
       Comentario: ['', [Validators.required]]
     });
   }
