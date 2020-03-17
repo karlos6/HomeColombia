@@ -1,5 +1,6 @@
 <br />
 <br />
+
 <table style=" margin-left: 18%;"  class="responsive-table container">
     <thead>
         <tr>
@@ -23,6 +24,9 @@
             </th>
             <th>
                 Estudiar
+            </th>
+            <th *ngIf="rol==0">
+                <p *ngIf="rol==0">Cambiar Asesor</p>
             </th>
         </tr>
     </thead>
@@ -56,9 +60,17 @@
                    routerLink="/solicitud/decision/{{c.id}}" >Decisión
                 </button> 
             </td>
+            <td *ngIf="rol==0">
+                <button *ngIf="rol==0" class="btn waves-effect waves-light pink" type="button" name="action"
+                   routerLink="/solicitud/setAdviser/{{c.id}}" >Cambiar asesor
+                </button> 
+            </td>
         </tr>
     </tbody>
 </table>
+<button *ngIf="rol==0" class="btn waves-effect waves-light pink" type="button" name="action"
+                   routerLink="/solicitud/setAdviser/{{c.id}}" >Cambiar asesor
+                </button> 
 <pagination-controls class="center" (pageChange)="p = $event"></pagination-controls>
 
 <div id="modalConfirmation" class="modal">

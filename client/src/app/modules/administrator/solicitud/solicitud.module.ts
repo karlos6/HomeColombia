@@ -6,10 +6,11 @@ import { SolicitudListComponent } from './solicitud-list/solicitud-list.componen
 import {NgxPaginationModule}  from 'ngx-pagination';
 import { DecisionComponent } from './decision/decision.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SetAsesorComponent } from './set-asesor/set-asesor.component'
 
 @NgModule({
-  declarations: [SolicitudListComponent, DecisionComponent],
+  declarations: [SolicitudListComponent, DecisionComponent, SetAsesorComponent],
   imports: [
     CommonModule,
     SolicitudRoutingModule,
