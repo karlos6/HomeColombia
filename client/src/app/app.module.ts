@@ -17,7 +17,6 @@ import {NgxPaginationModule}  from 'ngx-pagination';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,

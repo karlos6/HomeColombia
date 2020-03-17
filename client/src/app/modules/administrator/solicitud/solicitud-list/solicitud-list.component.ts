@@ -19,9 +19,10 @@ export class SolicitudListComponent implements OnInit {
     private router : Router) { }
 
   private solicitudes: SolicitudModel;
-
+  rol:String;
   ngOnInit() {
-    this.getListSolicutudxUser()
+    this.getListSolicutudxUser(),
+    this.rol=this.secService.userRol();
   }
 
   getListSolicitud() {

@@ -7,6 +7,7 @@ import { SolicitudModel } from '../models/solicitud.model';
 
 
 import { map } from 'rxjs/operators';
+import { CodeudorModel } from '../models/codeudor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -70,11 +71,27 @@ export class SolicitudService {
     return this.http.put<SolicitudModel>(url_api, solicitud, {headers : this.headers})
     .pipe(map(data => data));
   }
-
   
   getSolicitudsxEstado(){
     let token = this.secService.getToken();
     const url_api = `http://localhost:3000/api/solicitudes?filter=%7B%22where%22%3A%7B%20%22Estado%22%3A%20%22enviado%22%7D%7D&access_token=${token}`
     return this.solicitud = this.http.get(url_api);
   }
+
+  //SaveCodeudor
+  saveCodeudor(codeudor: CodeudorModel) {
+    let token = this.secService.getToken();
+    const url_api = `http://localhost:3000/api/codeudores?access_token=${token}`
+    return this.http.post<CodeudorModel>(url_api, codeudor, { headers: this.headers })
+      .pipe(map(data => data))
+  }
+
+    // METODO QUE GUARDA LA CARTA LABORAL EN EL LOOPBACK
+    loadDocumento(formData: FormData) {
+
+      this.http.post("http://localhost:3000/api/containers/Documentos/upload", formData)
+        .subscribe((response) => {
+          console.log('response received is ', response);
+        })
+    }
 }
