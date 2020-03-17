@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SecurityService } from 'src/app/services/security.service';
 import { UserModel } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
+import { EmaiService } from 'src/app/services/emai.service';
 
 declare let mensajeModalGenerico: any;
 declare let mostrarMensajeDeError: any;
@@ -16,7 +17,8 @@ export class AdviserCreatorComponent implements OnInit {
 
   RValidation: FormGroup;
 
-  constructor(private rb: FormBuilder, private secSevice: SecurityService, private router: Router) { }
+  constructor(private rb: FormBuilder, private secSevice: SecurityService, private router: Router
+    , private secEmai: EmaiService) { }
 
   ngOnInit() {
     this.RValidationBuilder();
@@ -60,6 +62,10 @@ export class AdviserCreatorComponent implements OnInit {
       }
       
       this.secSevice.registerUser(c).subscribe(c => {
+        console.log(c.email)
+        this.secEmai.sendEmai("Estas son tus credenciales para iniciar sesión:"+'<br>'+ 
+        "Username:"+" "+c.email+'<br>'+"Password:"+c.password,"Registro Asesor",c.email).subscribe(c=>{console.log(c)})
+        
         this.router.navigate(['/adviser/list'])
       })
 

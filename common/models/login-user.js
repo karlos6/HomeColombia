@@ -1,10 +1,12 @@
 'use strict';
+var config = require('../../server/config.json');
+var path = require('path');
 
 module.exports = function (Loginuser) {
-    Loginuser.sendEmail = (message,  subject, emailAddresses, cb) => {
+    Loginuser.sendEmail = (message, subject, emailAddresses, cb) => {
         Loginuser.app.models.Email.send({
             to: emailAddresses,
-            from: 'karlos.keller.97@gmail.com',
+            from: 'karlos',
             subject: subject,
             text: message,
             html: message
@@ -41,7 +43,60 @@ module.exports = function (Loginuser) {
                     required: true
                 }
             ],
-            returns: { arg: 'reponse', type: 'string'}
+            returns: { arg: 'reponse', type: 'string' }
         }
     );
+    /*
+
+    Loginuser.afterRemote('create', function (context, user, next) {
+        console.log('Sending Verification Email');
+
+        var options = {
+            type: 'email',
+            to: member.email,
+            from: 'noreply@example.com',
+            subject: 'Thanks for registering.',
+            template: path.resolve(__dirname, '../../server/views/verify.ejs'),
+            redirect: 'http://' + config.host + '/login?verified=true',
+            user: user,
+            protocol: 'https',
+            port: '443'
+        };
+
+        user.verify(options, function (err) {
+            if (err) {
+                User.deleteById(user.id);
+                return next(err);
+            }
+            context.res.render('response', {
+                title: 'Signed up successfully',
+                content: 'Please check your email and click on the verification link ' +
+                    'before logging in.',
+                redirectTo: '/',
+                redirectToLinkText: 'Log in'
+            });
+        });
+
+    });
+
+    Loginuser.remoteMethod(
+        'create',
+        {   
+            http: {
+                path: '/create', verb: 'post'
+            },
+
+            description: ["Api to send Email message by MyModel."]
+            ,
+            accepts: [
+                {
+                    arg: 'member',
+                    type: 'object',
+                    required: true
+                }
+            ],
+            returns: { arg: 'reponse', type: 'string' }
+        }
+    );
+*/
 };
