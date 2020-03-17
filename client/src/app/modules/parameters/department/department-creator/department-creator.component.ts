@@ -14,11 +14,11 @@ export class DepartmentCreatorComponent implements OnInit {
 
   frmValidator: FormGroup;
 
-  constructor(private fb: FormBuilder, 
+  constructor(private fb: FormBuilder,
     private router: Router,
     private deptService: DepartmentService) { }
 
-    private departments: DepartmentModel;
+  private departments: DepartmentModel;
 
   ngOnInit() {
     this.formGenerator();
@@ -37,13 +37,17 @@ export class DepartmentCreatorComponent implements OnInit {
 
 
   SaveDepartment() {
-    let c : DepartmentModel = {
+    let c: DepartmentModel = {
       code: this.fv.code.value,
       name: this.fv.name.value
     }
     this.deptService.saveDepartment(c).subscribe();
-    this.router.navigate(['/department/list'])
-    
+
+    setInterval(() => {
+
+      this.router.navigate(['/department/list'])
+    }, 500)
+
   }
 
 }

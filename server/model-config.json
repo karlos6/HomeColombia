@@ -15,10 +15,7 @@
   },
   "User": {
     "dataSource": "db",
-    "public": true,
-    "options": {
-      "emailVerificationRequired": true
-    }
+    "public": true
   },
   "AccessToken": {
     "dataSource": "db",

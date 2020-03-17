@@ -21,7 +21,7 @@ export class SolicitudListComponent implements OnInit {
   private solicitudes: SolicitudModel;
   rol:String;
   ngOnInit() {
-    this.getListSolicutudxUser(),
+    this.getListSolicitud(),
     this.rol=this.secService.userRol();
   }
 
