@@ -10,7 +10,7 @@ const routes: Routes = [
     component: MisSolicitudesListComponent
   },
   {
-    path: 'codeudor',
+    path: 'codeudor/:id',
     component: CodeudorComponent
   },
   {

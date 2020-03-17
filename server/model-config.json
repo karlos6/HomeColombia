@@ -61,5 +61,9 @@
   "solicitud": {
     "dataSource": "db",
     "public": true
+  },
+  "codeudor": {
+    "dataSource": "db",
+    "public": true
   }
 }
