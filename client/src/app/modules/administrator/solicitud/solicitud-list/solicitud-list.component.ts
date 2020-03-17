@@ -58,8 +58,12 @@ export class SolicitudListComponent implements OnInit {
       }
 
       this.secSolicitud.updateSolicitud(c).subscribe();
-      this.router.navigate(['/solicitud/list'])
-      this.getListSolicutudxUser()
+      setTimeout(()=>{
+        this.router.navigate(['/solicitud/list'])
+        this.getListSolicutudxUser()
+      }, 300)
+     
+     
     })
   }
 

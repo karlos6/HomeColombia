@@ -73,4 +73,8 @@ export class MisSolicitudesListComponent implements OnInit {
     })
   }
 
+  getDoc (){
+    this.secSolicitud.getDocumente()
+  }
+
 }

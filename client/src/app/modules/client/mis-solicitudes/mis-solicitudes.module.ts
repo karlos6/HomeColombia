@@ -8,10 +8,11 @@ import { CodeudorComponent } from './codeudor/codeudor.component';
 
 
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContratoComponent } from './contrato/contrato.component'
 
 @NgModule({
-  declarations: [MisSolicitudesListComponent, CodeudorComponent],
+  declarations: [MisSolicitudesListComponent, CodeudorComponent, ContratoComponent],
   imports: [
     CommonModule,
     MisSolicitudesRoutingModule,

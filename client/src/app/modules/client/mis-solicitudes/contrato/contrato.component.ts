@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SolicitudService } from 'src/app/services/solicitud.service';
-import { SecurityService } from 'src/app/services/security.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmaiService } from 'src/app/services/emai.service';
+import { SecurityService } from 'src/app/services/security.service';
 import { SolicitudModel } from 'src/app/models/solicitud.model';
+import { InmuebleService } from 'src/app/services/inmueble.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { InmuebleModel } from 'src/app/models/inmueble.model';
 
 
 declare var initMaterializeSelect: any;
 declare let mensajeModalGenerico: any;
 
 @Component({
-  selector: 'app-codeudor',
-  templateUrl: './codeudor.component.html',
-  styleUrls: ['./codeudor.component.css']
+  selector: 'app-contrato',
+  templateUrl: './contrato.component.html',
+  styleUrls: ['./contrato.component.css']
 })
-export class CodeudorComponent implements OnInit {
-
+export class ContratoComponent implements OnInit {
   frmValidator: FormGroup;
   uploadedFiles: Array<File>;
 
@@ -26,7 +28,7 @@ export class CodeudorComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private secEmail: EmaiService,
-    ) { }
+    private secInmueble: InmuebleService) { }
 
 
   ngOnInit() {
@@ -43,11 +45,6 @@ export class CodeudorComponent implements OnInit {
 
   formGenerator() {
     this.frmValidator = this.fb.group({
-      Nombre: ['', [Validators.required]],
-      Apellido: ['', [Validators.required]],
-      Telefono: ['', [Validators.required]],
-      Cedula: ['', [Validators.required]],
-      Correo: ['', [Validators.required]],
       Documento: ['', [Validators.required]]
     });
   }
@@ -70,7 +67,7 @@ export class CodeudorComponent implements OnInit {
 
 
   //OBTENER NOMBRE DE LAS IMAGENES SELECCIONADAS
-  nameLaboral() {
+  nameContrato() {
     let formData = {};
     for (var i = 0; i < this.uploadedFiles.length; i++) {
       formData = (this.uploadedFiles[i].name)
@@ -78,18 +75,10 @@ export class CodeudorComponent implements OnInit {
     return formData
   }
 
-  SaveCodeudor() {
+  SaveContrato() {
     let id = this.route.snapshot.paramMap.get("id")
     this.secSolicitud.getSolicitudById(id).subscribe((solicitudes: SolicitudModel) => {
       this.upload()
-      let x = {
-        nombre: this.fv.Nombre.value,
-        apellido: this.fv.Apellido.value,
-        cedula: this.fv.Cedula.value,
-        telefono: this.fv.Telefono.value,
-        correo: this.fv.Correo.value,
-        documento: this.nameLaboral()
-      }
       let c: SolicitudModel = {
         id: solicitudes.id,
         ClientId: solicitudes.ClientId,
@@ -103,20 +92,49 @@ export class CodeudorComponent implements OnInit {
         Direccion: solicitudes.Direccion,
         Precio: solicitudes.Precio,
         Fecha: solicitudes.Fecha,
-        Estado: 'Aceptada',
+        Estado: 'Ocupado',
         Imagen: solicitudes.Imagen,
         Comentario: solicitudes.Comentario,
-        Codeudor: x,
-        documento: this.nameLaboral()
+        Codeudor: solicitudes.Codeudor,
+        documento: this.nameContrato()
       }
+        this.EstadoInmueble(c.InmuebleId)
         this.secSolicitud.updateSolicitud(c).subscribe();
+        
         setTimeout(() =>{
         this.router.navigate(['/MisSolicitudes/list'])
-        mensajeModalGenerico("Su solicitud fue aceptada por favor Descargar el Contrato");
+        mensajeModalGenerico("Su solicitud fue aceptada");
         },300)
-
+        
       })
   }
 
+
+  EstadoInmueble(id: string){
+    this.secInmueble.getInmuebleById(id).subscribe((inmueble: InmuebleModel) => {
+      let c: InmuebleModel = {
+        id: id,
+        UserId: inmueble.UserId,
+        Estado: 'Vendido',
+        TipoOferta: inmueble.TipoOferta,
+        TipoInmueble: inmueble.TipoInmueble,
+        departmentId: inmueble.departmentId,
+        departmentName: inmueble.departmentName,
+        cityId: inmueble.cityId,
+        cityName: inmueble.cityName,
+        Barrio: inmueble.Barrio,
+        Direccion: inmueble.Direccion,
+        Precio: inmueble.Precio,
+        Estrato: inmueble.Estrato,
+        Area: inmueble.Area,
+        NumeroHabitaciones: inmueble.NumeroHabitaciones,
+        NumeroBanos: inmueble.NumeroBanos,
+        EstadoInmueble: inmueble.EstadoInmueble,
+        Descripcion: inmueble.Descripcion,
+        Imagen: inmueble.Imagen
+      }
+      this.secInmueble.updateInmueble(c).subscribe()
+    })
+  }
 
 }

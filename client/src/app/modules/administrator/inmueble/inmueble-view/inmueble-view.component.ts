@@ -67,7 +67,7 @@ export class InmuebleViewComponent implements OnInit {
         cliente:  ${infoUser},
         para el inmueble : ${infoInmueble}`, "Solicitud Inmueble",
             user.email).subscribe(c => {
-              mensajeModalGenerico("You message was send");
+              mensajeModalGenerico("Su solicitud a sido enviada, Te contactaremos pronto");
               this.router.navigate(['/home']);
             });
         })

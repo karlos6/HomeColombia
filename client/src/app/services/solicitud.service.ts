@@ -4,10 +4,8 @@ import { InmuebleService } from './inmueble.service';
 import { Observable } from 'rxjs';
 import { SecurityService } from './security.service';
 import { SolicitudModel } from '../models/solicitud.model';
-
-
 import { map } from 'rxjs/operators';
-import { CodeudorModel } from '../models/codeudor.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +23,7 @@ export class SolicitudService {
     "Content-Type": "application/json",
     Authorization: this.secService.getToken()
   });
+
 
   getAllSolicitud() {
     const url_api = "http://localhost:3000/api/solicitudes";
@@ -78,13 +77,6 @@ export class SolicitudService {
     return this.solicitud = this.http.get(url_api);
   }
 
-  //SaveCodeudor
-  saveCodeudor(codeudor: CodeudorModel) {
-    let token = this.secService.getToken();
-    const url_api = `http://localhost:3000/api/codeudores?access_token=${token}`
-    return this.http.post<CodeudorModel>(url_api, codeudor, { headers: this.headers })
-      .pipe(map(data => data))
-  }
 
     // METODO QUE GUARDA LA CARTA LABORAL EN EL LOOPBACK
     loadDocumento(formData: FormData) {
@@ -93,5 +85,13 @@ export class SolicitudService {
         .subscribe((response) => {
           console.log('response received is ', response);
         })
+    }
+
+
+    getDocumente(){
+      const url = 'http://localhost:3000/api/containers/Documentos/download/consultas.txt';
+      this.http.get(url).subscribe((response) =>{
+        console.log('response received is ', response);
+      })
     }
 }
