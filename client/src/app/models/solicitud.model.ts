@@ -16,4 +16,5 @@ export class SolicitudModel {
     Comentario? :string;
     Codeudor? :{};
     documento? : {};
+    contrato?: {};
 }

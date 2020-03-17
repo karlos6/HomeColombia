@@ -1,6 +1,6 @@
 <br />
 <br />
-<table style=" margin-left: 15%;" class="responsive-table container">
+<table style=" margin-left: 10%;" class="responsive-table container">
     <thead>
         <tr>
 
@@ -36,7 +36,8 @@
     <tbody>
         <tr *ngFor="let c of solicitudes | paginate: { itemsPerPage: 8, currentPage: p }">
             <td>
-                <img id="myImg" src="http://localhost:3000/api/containers/imagen/download/{{c.Imagen}}" width="150" height="150">
+                <img id="myImg" src="http://localhost:3000/api/containers/imagen/download/{{c.Imagen}}" width="150"
+                    height="150">
             </td>
             <td>
                 {{c.Direccion}}
@@ -72,7 +73,12 @@
             </th>
             <td *ngIf="c.Estado == 'aceptada-co-deudor'">
                 <button class="btn waves-effect waves-light green" type="button" name="action"
-                    routerLink="/MisSolicitudes/codeudor/{{c.id}}">Doc 
+                    routerLink="/MisSolicitudes/codeudor/{{c.id}}">Doc
+                </button>
+            </td>
+            <td *ngIf="c.Estado == 'Aceptada'">
+                <button class="btn waves-effect waves-light green" type="button" name="action"
+                    routerLink="/MisSolicitudes/contrato/{{c.id}}">DESCARGAR
                 </button>
             </td>
         </tr>
