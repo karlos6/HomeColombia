@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { InmuebleCreatorComponent } from './inmueble-creator/inmueble-creator.component';
 import { InmuebleEditorComponent } from './inmueble-editor/inmueble-editor.component';
 import { InmuebleListComponent } from './inmueble-list/inmueble-list.component';
+import { AuthenticationRequiredGuard } from 'src/app/helpers/guards/authentication-required.guard';
 
 
 const routes: Routes = [
   {
     path: 'creator',
-    component: InmuebleCreatorComponent
+    component: InmuebleCreatorComponent,
+    canActivate: [AuthenticationRequiredGuard]
   },
   {
     path: 'editor/:id',
@@ -16,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'list',
-    component: InmuebleListComponent
+    component: InmuebleListComponent,
+    canActivate: [AuthenticationRequiredGuard]
   },
   {
     path: '',
