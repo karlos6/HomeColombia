@@ -26,7 +26,12 @@
 <!-- barra desplegable -->
 <ul id="dropdown1" class="dropdown-content">
   <li *ngIf="userLogged && rol==2" ><a routerLink="/MisSolicitudes/list">Mis Solicitudes</a></li>
+  <li class="divider"></li>
   <li *ngIf="userLogged"><a routerLink="/security/logout">Logout</a></li>
+  <li class="divider"></li>
+  <li *ngIf="userLogged && rol==0 || rol==1"><a routerLink="/security/email">Send Email</a></li>
+
+
 </ul>
 
 
