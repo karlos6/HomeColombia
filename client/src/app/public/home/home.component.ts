@@ -3,6 +3,7 @@ import { InmuebleService } from 'src/app/services/inmueble.service';
 import { InmuebleModel } from 'src/app/models/inmueble.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+
 declare var initMaterializeSelect: any;
 
 @Component({
@@ -12,7 +13,7 @@ declare var initMaterializeSelect: any;
 })
 export class HomeComponent implements OnInit {
 
- 
+
   frmValidator: FormGroup;
 
   constructor(private fb: FormBuilder,

@@ -16,7 +16,6 @@ import { ContactComponent } from './public/contact/contact.component';
 import {NgxPaginationModule}  from 'ngx-pagination';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +34,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [
+    
     {
       provide: HTTP_INTERCEPTORS,
       useFactory: function (router: Router) {
