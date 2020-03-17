@@ -13,6 +13,7 @@ import { DepartmentModel } from 'src/app/models/department.model';
 export class DepartmentCreatorComponent implements OnInit {
 
   frmValidator: FormGroup;
+  listdeparment: DepartmentModel
 
   constructor(private fb: FormBuilder, 
     private router: Router,
@@ -41,6 +42,14 @@ export class DepartmentCreatorComponent implements OnInit {
       code: this.fv.code.value,
       name: this.fv.name.value
     }
+
+    this.deptService.getAllDepartments().subscribe(l=>{this.listdeparment = l})
+
+    //var bandera = this.listdeparment.find(c => c.email = this.fv.email)
+
+
+
+    
     this.deptService.saveDepartment(c).subscribe();
     this.router.navigate(['/department/list'])
     
